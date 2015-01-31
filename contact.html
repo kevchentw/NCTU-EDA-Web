@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>EDA實驗室</title>
+    <meta name="description" content="HOME">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,300&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+    
+<div style="background-color: #1b1c1d; padding: 10px; width: 100%; z-index: 1001;position: fixed; top:0;">
+<div class="ui inverted menu" style="width: 1000px; margin: 0px auto;">
+ <a class="item" href="#"> EDA實驗室 </a>
+  <a class="item" href="index.html">
+    <i class="home icon"></i> 首頁
+  </a>
+  <a class="item" href="news.html">
+    <i class="announcement icon"></i> 最新消息
+  </a>
+  <a class="item" href="#">
+    <i class="feed icon"></i> 公告
+  </a>
+  <a class="item" href="members.html">
+    <i class="users icon"></i> 成員
+  </a>
+  <a class="item" href="#">
+    <i class="idea icon"></i> EDA 簡介
+  </a>
+  <a class="item" href="#">
+    <i class="certificate icon"></i> 研究成果
+  </a>
+      <a class="item" href="#">
+    <i class="photo icon"></i> 活動
+  </a>
+  <a class="item" href="download.html">
+    <i class="folder outline icon"></i> 下載
+  </a>
+
+  <div class="right menu">
+           <a class="item" href="contact.html"><i class="mail outline icon"></i>聯絡我們</a>
+      </div>
+</div>
+</div>
+    <br><br><br>
+    <div class="ui raised segment" style="width: 820px; margin: 30px auto 25px">
+        <h1 class="ui header">地圖</h1>
+<iframe width="900" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?q=台灣新竹市大學路交通大學光復校區&key=..."></iframe>
+    </div>
+	<script type="text/javascript">
+	    $(document).ready(function(){
+	    	$(".main").click(function(){
+		    	$('.statistic').transition('pulse');
+		    });
+			$('.statistic').hover(function() {
+				$(this).transition('pulse');
+			}, function() {
+				//$(this).transition('pulse');
+			});
+		});
+	</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.js"></script>
+
+</body>
+
+</html>
+
