@@ -14,38 +14,54 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.js"></script>
+
 </head>
 <body>
 <div style="background-color: #1b1c1d; padding: 10px; width: 100%; z-index: 1001;position: fixed; top:0;">
-    <div class="ui inverted menu" style="width: 1000px; margin: 0px auto;">
-        <a class="item" href="/"> EDA實驗室 </a>
-        <a class="item" href="/">
-            <i class="home icon"></i> 首頁
-        </a>
-        <a class="item" href="/news/">
-            <i class="announcement icon"></i> 最新消息
-        </a>
-        <a class="item" href="/feeds/">
-            <i class="feed icon"></i> 公告
-        </a>
-        <a class="item" href="/members/">
-            <i class="users icon"></i> 成員
-        </a>
-        <a class="item" href="/about/">
-            <i class="idea icon"></i> EDA 簡介
-        </a>
-        <a class="item" href="/achievement/">
-            <i class="certificate icon"></i> 研究成果
-        </a>
-        <a class="item" href="/activity/">
-            <i class="photo icon"></i> 活動
-        </a>
-        <a class="item" href="/downloads/">
-            <i class="folder outline icon"></i> 下載
-        </a>
-
-        <div class="right menu">
-            <a class="item" href="/contact"><i class="mail outline icon"></i>聯絡我們</a>
+    <div class="ui inverted menu grid">
+        <div class="mobile only row" style="padding:0;">
+            <a class="item" href="/"> EDA實驗室 </a>
+            <a class="item" href="/"> mobile </a>
+            <div class="right menu">
+                <a class="item" href="/">mobile right</a>
+            </div>
+        </div>
+        <div class="tablet only row" style="padding:0;">
+            <a class="item" href="/"> EDA實驗室 </a>
+            <a class="item" href="/"> tablet </a>
+            <div class="right menu">
+                <a class="item" href="/">tablet right</a>
+            </div>
+        </div>
+        <div class="computer only row" style="padding:0;">
+            <a class="item" href="/"> EDA實驗室 </a>
+            <a class="item" href="/">
+                <i class="home icon"></i> 首頁
+            </a>
+            <a class="item" href="/news/">
+                <i class="announcement icon"></i> 最新消息
+            </a>
+            <a class="item" href="/feeds/">
+                <i class="feed icon"></i> 公告
+            </a>
+            <a class="item" href="/members/">
+                <i class="users icon"></i> 成員
+            </a>
+            <a class="item" href="/about/">
+                <i class="idea icon"></i> EDA 簡介
+            </a>
+            <a class="item" href="/achievement/">
+                <i class="certificate icon"></i> 研究成果
+            </a>
+            <a class="item" href="/activity/">
+                <i class="photo icon"></i> 活動
+            </a>
+            <a class="item" href="/downloads/">
+                <i class="folder outline icon"></i> 下載
+            </a>
+            <div class="right menu">
+                <a class="item" href="/contact"><i class="mail outline icon"></i>聯絡我們</a>
+            </div>
         </div>
     </div>
 </div>
