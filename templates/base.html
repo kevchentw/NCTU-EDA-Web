@@ -23,14 +23,68 @@
             <a class="item" href="/"> EDA實驗室 </a>
             <a class="item" href="/"> mobile </a>
             <div class="right menu">
-                <a class="item" href="/">mobile right</a>
+                <div class="ui icon top right pointing dropdown black button">
+                    <i class="white content icon"></i>
+                    <div class="menu">
+                        <div class="header">Display Density</div>
+                        <div class="item">Comfortable</div>
+                        <div class="item">Cozy</div>
+                        <div class="item">Compact</div>
+                        <div class="ui divider"></div>
+                        <div class="item">Settings</div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Upload Settings</span>
+                            <div class="menu">
+                                <div class="item">
+                                    <i class="check icon"></i>
+                                    Convert Uploaded Files to PDF
+                                </div>
+                                <div class="item">
+                                    <i class="check icon"></i>
+                                    Digitize Text from Uploaded Files
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">Manage Apps</div>
+                        <div class="item">Keyboard Shortcuts</div>
+                        <div class="item">Help</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="tablet only row" style="padding:0;">
             <a class="item" href="/"> EDA實驗室 </a>
             <a class="item" href="/"> tablet </a>
             <div class="right menu">
-                <a class="item" href="/">tablet right</a>
+                <div class="ui icon top right pointing dropdown black button">
+                    <i class="white content icon"></i>
+                    <div class="menu">
+                        <div class="header">Display Density</div>
+                        <div class="item">Comfortable</div>
+                        <div class="item">Cozy</div>
+                        <div class="item">Compact</div>
+                        <div class="ui divider"></div>
+                        <div class="item">Settings</div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Upload Settings</span>
+                            <div class="menu">
+                                <div class="item">
+                                    <i class="check icon"></i>
+                                    Convert Uploaded Files to PDF
+                                </div>
+                                <div class="item">
+                                    <i class="check icon"></i>
+                                    Digitize Text from Uploaded Files
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">Manage Apps</div>
+                        <div class="item">Keyboard Shortcuts</div>
+                        <div class="item">Help</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="computer only row" style="padding:0;">
@@ -68,6 +122,16 @@
 {% block content %}
 
 {% endblock content %}
+<script text="text/javascript">
+    $(document).ready(function(){
+        $('.dropdown')
+  .dropdown({
+    // you can use any ui transition
+    transition: 'drop'
+  })
+;
+    })
+</script>
 <script type="text/javascript">
     $(document).ready(function(){
         $(".main").click(function(){
