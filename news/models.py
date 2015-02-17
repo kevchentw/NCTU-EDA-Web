@@ -5,7 +5,7 @@ import datetime
 # Create your models here.
 class NewsModel(models.Model):
     nid = models.AutoField(primary_key = True)
-    top = models.BooleanField()
+    top = models.BooleanField(default = False)
     created_time = models.DateTimeField(editable = False)
     modified_time = models.DateTimeField()
     title = models.TextField()

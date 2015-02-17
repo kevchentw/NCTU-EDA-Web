@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import HttpResponse as response
+from news.models import NewsModel
 
 def home(request):
     if request.method == 'GET':
@@ -11,7 +12,29 @@ def home(request):
 
 def news(request):
     if request.method == 'GET':
-        return render(request, "news.html")
+        news_list = NewsModel.objects.all()
+        d = {}
+        nl = []
+        ntl = []
+        for n in news_list:
+            if n.top:
+                ntl.append({'title' : n.title,
+                    'content' : n.content,
+                    'author' : n.author,
+                    'created_time' : n.created_time,
+                    'modified_time' : n.modified_time,
+                    'classification' : n.classification})
+            else:
+                nl.append({'title' : n.title,
+                    'content' : n.content,
+                    'author' : n.author,
+                    'created_time' : n.created_time,
+                    'modified_time' : n.modified_time,
+                    'classification' : n.classification})
+
+        d['news_list_0'] = nl
+        d['news_list_1'] = ntl
+        return render(request, "news.html",d)
     elif request.method == 'POST':
         return response('')
 
