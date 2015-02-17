@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='NewsModel',
             fields=[
                 ('nid', models.AutoField(primary_key=True, serialize=False)),
-                ('top', models.BooleanField()),
+                ('top', models.BooleanField(default=False)),
                 ('created_time', models.DateTimeField(editable=False)),
                 ('modified_time', models.DateTimeField()),
                 ('title', models.TextField()),

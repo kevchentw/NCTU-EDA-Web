@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf.urls.static import static
 
 urlpatterns = patterns('',
     url(r'^$', 'EDA_Web.views.home', name='home'),
@@ -12,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^members/', 'EDA_Web.views.members', name='members'),
     url(r'^news/', 'EDA_Web.views.news', name='news'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^html/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/administrator/NCTU-EDA-Web/html',})
 )
