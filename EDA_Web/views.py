@@ -87,3 +87,23 @@ def contact(request):
     elif request.method == 'POST':
         return response('')
 
+
+def kcw(request):
+    if request.method == 'GET':
+        return render(request, "kcw.html")
+    elif request.method == 'POST':
+        return response('')
+
+
+def tyho(request):
+    if request.method == 'GET':
+        return render(request, "tyho.html")
+    elif request.method == 'POST':
+        return response('')
+
+
+def ylli(request):
+    if request.method == 'GET':
+        return render(request, "ylli.html")
+    elif request.method == 'POST':
+        return response('')

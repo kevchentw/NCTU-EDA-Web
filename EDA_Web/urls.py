@@ -12,6 +12,9 @@ urlpatterns = patterns('',
     url(r'^feeds/', 'EDA_Web.views.feeds', name='feeds'),
     url(r'^members/', 'EDA_Web.views.members', name='members'),
     url(r'^news/', 'EDA_Web.views.news', name='news'),
+    url(r'^kcw/', 'EDA_Web.views.kcw', name='kcw'),
+    url(r'^tyho/', 'EDA_Web.views.tyho', name='tyho'),
+    url(r'^ylli/', 'EDA_Web.views.ylli', name='ylli'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^html/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/administrator/NCTU-EDA-Web/html',})
 )
