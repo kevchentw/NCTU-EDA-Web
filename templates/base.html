@@ -27,16 +27,16 @@
                     <i class="white content icon"></i>
                     <div class="menu">
                         <div class="header">EDA</div>
-						<a class="item" href="/">首頁</a>
+                        <a class="item" href="/">首頁</a>
                         <a class="item" href="/news/">最新消息</a>
                         <a class="item" href="/feeds/">公告</a>
                         <a class="item" href="/members/">成員</a>
                         <a class="item" href="/about/">EDA 簡介</a>
                         <a class="item" href="/achievement/">研究成果</a>
                         <a class="item" href="/activity/">活動</a>
-						<a class="item" href="/downloads/">下載</a>
+                        <a class="item" href="/downloads/">下載</a>
                         <div class="ui divider"></div>
-						<a class="item" href="/contact/">聯絡我們</a>
+                        <a class="item" href="/contact/">聯絡我們</a>
                     </div>
                 </div>
             </div>
@@ -49,16 +49,16 @@
                     <i class="white content icon"></i>
                     <div class="menu">
                         <div class="header">EDA</div>
-						<a class="item" href="/">首頁</a>
+                        <a class="item" href="/">首頁</a>
                         <a class="item" href="/news/">最新消息</a>
                         <a class="item" href="/feeds/">公告</a>
                         <a class="item" href="/members/">成員</a>
                         <a class="item" href="/about/">EDA 簡介</a>
                         <a class="item" href="/achievement/">研究成果</a>
                         <a class="item" href="/activity/">活動</a>
-						<a class="item" href="/downloads/">下載</a>
+                        <a class="item" href="/downloads/">下載</a>
                         <div class="ui divider"></div>
-						<a class="item" href="/contact/">聯絡我們</a>
+                        <a class="item" href="/contact/">聯絡我們</a>
                     </div>
                 </div>
             </div>
@@ -77,9 +77,15 @@
             <a class="item" href="/members/">
                 <i class="users icon"></i> 成員
             </a>
-            <a class="item" href="/about/">
-                <i class="idea icon"></i> EDA 簡介
-            </a>
+
+            <div class="ui dropdown item">
+                <i class="idea icon"></i>研究 <i class="dropdown icon"></i>
+
+                <div class="menu">
+                    <a href="/about/" class="item">研究簡介</a>
+                    <a class="item">研究主題</a>
+                </div>
+            </div>
             <a class="item" href="/achievement/">
                 <i class="certificate icon"></i> 研究成果
             </a>
@@ -101,11 +107,11 @@
 <script text="text/javascript">
     $(document).ready(function(){
         $('.dropdown')
-  .dropdown({
-    // you can use any ui transition
-    transition: 'drop'
-  })
-;
+                .dropdown({
+                    // you can use any ui transition
+                    transition: 'drop'
+                })
+        ;
     })
 </script>
 <script type="text/javascript">
