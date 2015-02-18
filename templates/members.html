@@ -7,12 +7,18 @@
     TODO: Devide into desktop/tablet/mobile view
     TODO: Add loading animation to the picture
     {% endcomment %}
-    <div class="ui stackable grid" style="margin-top:75px">
-        <div class="two wide column"></div>
-        <div class="fourteen wide column">
+    <div class="ui centered grid" style="margin-top:75px">
+        <div class="twelve wide centered column">
             <div class="ui special cards">
                 <div class="ui card">
-                    <div class="image">
+                    <div class="dimmable image">
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <div class="center">
+                                    <div class="ui teal button">介紹</div>
+                                </div>
+                            </div>
+                        </div>
                         <img src="https://de42820c3fd6c19a2ef0554de81514f23d513e37.googledrive.com/host/0B0OZD1XRjVcNfi1PME10WUZKTG9aUk01YXpFbkRaeFVKOWQwS2tFRkFVLTVzRnViU0VZXzA/EDA/kcw.jpg">
                     </div>
                     <div class="content">
@@ -41,7 +47,14 @@
                     </a>
                 </div>
                 <div class="ui card">
-                    <div class="image">
+                    <div class="dimmable image">
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <div class="center">
+                                    <div class="ui teal button">介紹</div>
+                                </div>
+                            </div>
+                        </div>
                         <img src="https://de42820c3fd6c19a2ef0554de81514f23d513e37.googledrive.com/host/0B0OZD1XRjVcNfi1PME10WUZKTG9aUk01YXpFbkRaeFVKOWQwS2tFRkFVLTVzRnViU0VZXzA/EDA/ylli.jpg">
                     </div>
                     <div class="content">
@@ -68,15 +81,22 @@
                 </div>
                 <div class="ui card">
                     <div class="dimmable image">
-                        <div class="ui inverted dimmer">
+                        <div class="ui dimmer">
                             <div class="content">
                                 <div class="center">
-                                    <div class="ui primary button">Add Friend</div>
+                                    <div class="ui teal button">介紹</div>
                                 </div>
                             </div>
                         </div>
                         <img src="https://de42820c3fd6c19a2ef0554de81514f23d513e37.googledrive.com/host/0B0OZD1XRjVcNfi1PME10WUZKTG9aUk01YXpFbkRaeFVKOWQwS2tFRkFVLTVzRnViU0VZXzA/EDA/tyho.jpg">
                     </div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.special.cards .image').dimmer({
+                                on: 'hover'
+                            });
+                        });
+                    </script>
                     <div class="content">
                         <a class="header">何宗易</a>
 
