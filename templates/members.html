@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <div class="ui centered grid" style="margin-top:75px">
+    {% comment %}
+    TODO: Make every card same height
+    https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes
+    TODO: Make pic same size
+    {% endcomment %}
+    <div class="ui stackable centered grid" style="margin-top:75px">
         <div class="four wide column" >
             <div class="ui card">
                 <div class="image">
@@ -10,9 +14,9 @@
                 <div class="content">
                     <a class="header">吳凱強</a>
                     <div class="meta">
-                        <span class="date">Kai-Chiang Wu 助理教授 </span>
+                        <span>Kai-Chiang Wu 助理教授</span>
                     </div>
-                    <div class="description" style="min-height: 75px;">
+                    <div class="description">
                         IoT之電腦輔助設計
                         <br>SoC設計自動化
                         <br>高效節能計算
@@ -26,6 +30,10 @@
                         Computer-Aided Design for G(reen)-RE(liable)-A(nd)-T(rustworthy)/GREAT Systems
                     </a>
                 </div>
+                <div class="ui bottom attached blue button">
+                    <i class="info icon"></i>
+                    更多
+                </div>
             </div>
         </div>
         <div class="four wide column">
@@ -38,7 +46,7 @@
                     <div class="meta">
                         <span class="date">Yih-Lang Li 教授</span>
                     </div>
-                    <div class="description" style="min-height: 110px;">
+                    <div class="description">
                         VLSI CAD for SoC Design
                         <br>DSB process
                     </div>
@@ -48,6 +56,10 @@
                         <i class="lab icon"></i>
                         超大型積體電路設計自動化實驗室
                     </a>
+                </div>
+                <div class="ui bottom attached blue button">
+                    <i class="info icon"></i>
+                    更多
                 </div>
             </div>
         </div>
@@ -61,7 +73,7 @@
                     <div class="meta">
                         <span class="date">Tsung-Yi Ho 教授</span>
                     </div>
-                    <div class="description" style="min-height: 110px;">
+                    <div class="description">
                         設計自動化演算法(微流體生物晶片、智慧電網、車用電子、奈米積體電路等)
                     </div>
                 </div>
@@ -70,6 +82,10 @@
                         <i class="lab icon"></i>
                         智慧設計自動化實驗室
                     </a>
+                </div>
+                <div class="ui bottom attached blue button">
+                    <i class="info icon"></i>
+                    更多
                 </div>
             </div>
         </div>
