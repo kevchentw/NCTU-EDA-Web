@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import HttpResponse as response
 from news.models import NewsModel
+from EDA_Web.service import Service
 
 def home(request):
     if request.method == 'GET':
@@ -12,7 +13,7 @@ def home(request):
 
 def news(request):
     if request.method == 'GET':
-        news_list = NewsModel.objects.all()
+        err,news_list = Service.News.get_news_all()        
         d = {}
         nl = []
         ntl = []
