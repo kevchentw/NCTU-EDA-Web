@@ -3,15 +3,16 @@
 
 <head>
     <!-- Standard Meta -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properities -->
     <title>EDA實驗室</title>
 
     <!-- Import css and javascript -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.css">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.js"></script>
 
@@ -22,6 +23,7 @@
         <div class="mobile only row" style="padding:0;">
             <a class="item" href="/"> EDA實驗室 </a>
             <a class="item" href="/"> mobile </a>
+
             <div class="right menu">
                 <div class="ui icon top right pointing dropdown black button">
                     <i class="white content icon"></i>
@@ -40,14 +42,15 @@
                                 <a href="/about/" class="item" style="text-align: right">研究簡介</a>
 
                                 <div class="header">研究領域</div>
-                                <div href="#" class="item">李毅郎</div>
-                                <div href="#" class="item">何宗易</div>
-                                <div href="#" class="item">吳凱強</div>
+                                <div href="/ylli_research/" class="item">李毅郎</div>
+                                <div href="/tyho_researc/" class="item">何宗易</div>
+                                <div href="/kcw_research/" class="item">吳凱強</div>
                             </div>
                         </div>
                         <a class="item" href="/achievement/">研究成果</a>
                         <a class="item" href="/activity/">活動</a>
                         <a class="item" href="/downloads/">下載</a>
+
                         <div class="ui divider"></div>
                         <a class="item" href="/contact/">聯絡我們</a>
                     </div>
@@ -57,28 +60,33 @@
         <div class="tablet only row" style="padding:0;">
             <a class="item" href="/"> EDA實驗室 </a>
             <a class="item" href="/"> tablet </a>
+
             <div class="right menu">
                 <div class="ui icon top right pointing dropdown black button">
                     <i class="white content icon"></i>
+
                     <div class="menu">
                         <div class="header">EDA</div>
                         <a class="item" href="/">首頁</a>
                         <a class="item" href="/news/">最新消息</a>
                         <a class="item" href="/feeds/">公告</a>
                         <a class="item" href="/members/">成員</a>
+
                         <div class="ui dropdown item">研究<i class="left dropdown icon"></i>
+
                             <div class="left menu">
                                 <a href="/about/" class="item" style="text-align: right">研究簡介</a>
 
                                 <div class="header">研究領域</div>
-                                <div href="#" class="item">李毅郎</div>
-                                <div href="#" class="item">何宗易</div>
-                                <div href="#" class="item">吳凱強</div>
+                                <div href="/ylli_research/" class="item">李毅郎</div>
+                                <div href="/tyho_researc/" class="item">何宗易</div>
+                                <div href="/kcw_research/" class="item">吳凱強</div>
                             </div>
                         </div>
                         <a class="item" href="/achievement/">研究成果</a>
                         <a class="item" href="/activity/">活動</a>
                         <a class="item" href="/downloads/">下載</a>
+
                         <div class="ui divider"></div>
                         <a class="item" href="/contact/">聯絡我們</a>
                     </div>
@@ -102,6 +110,7 @@
 
             <div class="ui pointing dropdown link item">
                 <i class="idea icon"></i>研究<i class="dropdown icon"></i>
+
                 <div class="menu">
                     <a href="/about/" class="item">研究簡介</a>
 
@@ -110,9 +119,9 @@
                         <span class="text">研究主題</span>
 
                         <div class="menu">
-                            <div href="#" class="item">李毅郎</div>
-                            <div href="#" class="item">何宗易</div>
-                            <div href="#" class="item">吳凱強</div>
+                            <div href="/ylli_research/" class="item">李毅郎</div>
+                            <div href="/tyho_researc/" class="item">何宗易</div>
+                            <div href="/kcw_research/" class="item">吳凱強</div>
                         </div>
                     </div>
                 </div>
@@ -126,6 +135,7 @@
             <a class="item" href="/downloads/">
                 <i class="folder outline icon"></i> 下載
             </a>
+
             <div class="right menu">
                 <a class="item" href="/contact"><i class="mail outline icon"></i>聯絡我們</a>
             </div>
@@ -136,20 +146,20 @@
 
 {% endblock content %}
 <script text="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.ui.dropdown')
                 .dropdown()
         ;
     })
 </script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $(".main").click(function(){
+    $(document).ready(function () {
+        $(".main").click(function () {
             $('.statistic').transition('pulse');
         });
-        $('.statistic').hover(function() {
+        $('.statistic').hover(function () {
             $(this).transition('pulse');
-        }, function() {
+        }, function () {
             //$(this).transition('pulse');
         });
     });
