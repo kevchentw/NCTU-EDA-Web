@@ -23,3 +23,11 @@ class NewsModel(models.Model):
             self.created_time = time 
         self.modified_time = time
         return super(NewsModel,self).save(*args,**kwargs)
+
+    def save(self, *args, **kwargs):
+        if not self.nid:
+            self.created_time = datetime.datetime.now().replace(tzinfo=datetime.timezone(datetime.timedelta(hours=8)))
+        else:
+            self.modified = True
+        self.modified_time = datetime.datetime.now().replace(tzinfo=datetime.timezone(datetime.timedelta(hours=8)))
+        return super(NewsModel, self).save(*args, **kwargs)
