@@ -19,20 +19,9 @@ def news(request):
         ntl = []
         for n in news_list:
             if n.top:
-                ntl.append({'title' : n.title,
-                    'content' : n.content,
-                    'author' : n.author,
-                    'created_time' : n.created_time,
-                    'modified_time' : n.modified_time,
-                    'classification' : n.classification})
+                ntl.append(n)
             else:
-                nl.append({'title' : n.title,
-                    'content' : n.content,
-                    'author' : n.author,
-                    'created_time' : n.created_time,
-                    'modified_time' : n.modified_time,
-                    'classification' : n.classification})
-
+                nl.append(n)
         d['news_list_0'] = nl
         d['news_list_1'] = ntl
         return render(request, "news.html",d)
