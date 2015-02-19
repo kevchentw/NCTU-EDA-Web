@@ -17,17 +17,11 @@ class NewsModel(models.Model):
     def __str__(self):
         return str(self.nid)
 
-    def save(self,*args,**kwargs):
+    def save(self, *args, **kwargs):
         time = datetime.datetime.now().replace(tzinfo=datetime.timezone(datetime.timedelta(hours=8)))
         if not self.nid:
-            self.created_time = time 
-        self.modified_time = time
-        return super(NewsModel,self).save(*args,**kwargs)
-
-    def save(self, *args, **kwargs):
-        if not self.nid:
-            self.created_time = datetime.datetime.now().replace(tzinfo=datetime.timezone(datetime.timedelta(hours=8)))
+            self.created_time = time
         else:
             self.modified = True
-        self.modified_time = datetime.datetime.now().replace(tzinfo=datetime.timezone(datetime.timedelta(hours=8)))
+        self.modified_time = time
         return super(NewsModel, self).save(*args, **kwargs)

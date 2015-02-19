@@ -13,9 +13,10 @@
 								<a class="header">{{news.title}}</a>
                                 <div class="meta">
 								<span class="cinema">
-                                    {% if modified %}更新時間:{{ news.created_time.year }}-{{ news.created_time.month }}-
-                                        {{ news.created_time.day }} {{ news.created_time.time }}{% endif %}
-                                    發表時間:{{ news.modified_time.year }}-{{ news.modified_time.month }}-{{ news.modified_time.day }} {{ news.modified_time.time }}
+                                    {% if news.modified %}更新時間:{{ news.modified_time.year }}-
+                                        {{ news.modified_time.month }}-{{ news.modified_time.day }}
+                                        {{ news.created_time.time }}{% endif %}
+                                    發表時間:{{ news.created_time.year }}-{{ news.created_time.month }}-{{ news.created_time.day }} {{ news.created_time.time }}
                                 </span>
                                 </div>
                                 <div class="description">
@@ -42,9 +43,10 @@
 								<a class="header">{{news.title}}</a>
                                 <div class="meta">
 								<span class="cinema">
-                                    {% if modified %}更新時間:{{ news.created_time.year }}-{{ news.created_time.month }}-
-                                        {{ news.created_time.day }} {{ news.created_time.time }}{% endif %}
-                                    發表時間:{{ news.modified_time.year }}-{{ news.modified_time.month }}-{{ news.modified_time.day }} {{ news.modified_time.time }}
+                                    {% if news.modified %}更新時間:{{ news.modified_time.year }}-
+                                        {{ news.modified_time.month }}-{{ news.modified_time.day }}
+                                        {{ news.created_time.time }}{% endif %}
+                                    發表時間:{{ news.created_time.year }}-{{ news.created_time.month }}-{{ news.created_time.day }} {{ news.created_time.time }}
                             </span>
                                 </div>
                                 <div class="description">
