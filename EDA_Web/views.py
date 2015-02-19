@@ -4,6 +4,7 @@ from django.shortcuts import HttpResponse as response
 from news.models import NewsModel
 from EDA_Web.service import Service
 
+
 def home(request):
     if request.method == 'GET':
         return render(request, "home.html")
@@ -13,7 +14,7 @@ def home(request):
 
 def news(request):
     if request.method == 'GET':
-        err,news_list = Service.News.get_news_all()        
+        err, news_list = Service.News.get_news_all()
         d = {}
         nl = []
         ntl = []
@@ -24,7 +25,7 @@ def news(request):
                 nl.append(n)
         d['news_list_0'] = nl
         d['news_list_1'] = ntl
-        return render(request, "news.html",d)
+        return render(request, "news.html", d)
     elif request.method == 'POST':
         req = request.POST['req']
         if req == 'add':
@@ -33,11 +34,11 @@ def news(request):
             content = str(request.POST['content'])
             author = str(request.POST['author'])
             classification = str(request.POST['classification'])
-            err,nid = Service.News.add_news(title,top,content,author,classification)
+            err, nid = Service.News.add_news(title, top, content, author, classification)
             return response(str(nid))
         elif req == 'del':
             nid = request.POST['nid']
-            err,nid = Service.News.del_news(nid)
+            err, nid = Service.News.del_news(nid)
             if err:
                 return response(err)
             return response('S')
@@ -47,7 +48,7 @@ def news(request):
             content = str(request.POST['content'])
             author = str(request.POST['author'])
             classification = str(request.POST['classification'])
-            err,nid = Service.News.mod_news(title,top,content,author,classification)
+            err, nid = Service.News.mod_news(title, top, content, author, classification)
             if err:
                 return response(err)
             return response(str(nid))
