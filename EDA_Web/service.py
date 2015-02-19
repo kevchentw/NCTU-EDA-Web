@@ -33,7 +33,7 @@ class NewsService:
         n.delete()
         return (None,nid)
 
-    def add_news(self,nid,title,top,content,author,classification):
+    def mod_news(self,nid,title,top,content,author,classification):
         err,n = self.get_news_by_id(nid)
         if err:
             return(err,None)

@@ -26,7 +26,33 @@ def news(request):
         d['news_list_1'] = ntl
         return render(request, "news.html",d)
     elif request.method == 'POST':
-        return response('')
+        req = request.POST['req']
+        if req == 'add':
+            title = str(request.POST['title'])
+            top = True if str(request.POST['top']) == '1' else False
+            content = str(request.POST['content'])
+            author = str(request.POST['author'])
+            classification = str(request.POST['classification'])
+            err,nid = Service.News.add_news(title,top,content,author,classification)
+            return response(str(nid))
+        elif req == 'del':
+            nid = request.POST['nid']
+            err,nid = Service.News.del_news(nid)
+            if err:
+                return response(err)
+            return response('S')
+        elif req == 'mod':
+            title = str(request.POST['title'])
+            top = True if str(request.POST['top']) == '1' else False
+            content = str(request.POST['content'])
+            author = str(request.POST['author'])
+            classification = str(request.POST['classification'])
+            err,nid = Service.News.mod_news(title,top,content,author,classification)
+            if err:
+                return response(err)
+            return response(str(nid))
+
+        return response('undefined')
 
 
 def feeds(request):
