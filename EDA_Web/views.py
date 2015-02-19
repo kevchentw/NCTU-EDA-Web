@@ -114,7 +114,7 @@ def kcw(request):
 
 def kcw_research(request):
     if request.method == 'GET':
-        return render(request, "kcw_research.html.html")
+        return render(request, "kcw_research.html")
     elif request.method == 'POST':
         return response('')
 
@@ -128,7 +128,7 @@ def tyho(request):
 
 def tyho_research(request):
     if request.method == 'GET':
-        return render(request, "tyho.html")
+        return render(request, "tyho_research.html")
     elif request.method == 'POST':
         return response('')
 
@@ -142,6 +142,6 @@ def ylli(request):
 
 def ylli_research(request):
     if request.method == 'GET':
-        return render(request, "ylli.html")
+        return render(request, "ylli_research.html")
     elif request.method == 'POST':
         return response('')
