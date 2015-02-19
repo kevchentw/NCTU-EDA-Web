@@ -11,7 +11,7 @@ class NewsService:
 
     def get_news_all(self):
         nl = self.newsdb.all()
-        nl = sorted(nl, key=lambda news: news.modified_time)
+        nl = sorted(nl, key=lambda news: news.modified_time, reverse = True)
         return (None, nl)
 
     def get_news_by_id(self, nid):
