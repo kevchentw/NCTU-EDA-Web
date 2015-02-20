@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from news.models import NewsModel
 
 
@@ -13,6 +14,20 @@ class NewsService:
         nl = self.newsdb.all()
         nl = sorted(nl, key=lambda news: news.modified_time, reverse = True)
         return (None, nl)
+
+    def get_news_all_dict(self):
+        err, news_list = self.get_news_all()
+        d = {}
+        nl = []
+        ntl = []
+        for n in news_list:
+            if n.top:
+                ntl.append(n)
+            else:
+                nl.append(n)
+        d['news_list_0'] = nl
+        d['news_list_1'] = ntl
+        return (None, d)
 
     def get_news_by_id(self, nid):
         cur = self.newsdb.raw('SELECT * FROM "news_newsmodel" '
