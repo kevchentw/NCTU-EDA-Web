@@ -6,6 +6,7 @@ from EDA_Web.service import NewsService
 
 urlpatterns = patterns('',
                        url(r'^$', 'EDA_Web.views.home', name='home'),
+                       url(r'^logout/', 'EDA_Web.views.logout', name='logout'),
                        url(r'^about/', 'EDA_Web.views.about', name='about'),
                        url(r'^achievement/', 'EDA_Web.views.achievement', name='achievement'),
                        url(r'^activity/', 'EDA_Web.views.activity', name='activity'),

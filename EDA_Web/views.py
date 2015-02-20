@@ -145,3 +145,7 @@ def ylli_research(request):
         return render(request, "ylli_research.html")
     elif request.method == 'POST':
         return response('')
+
+
+def logout(request):
+    logout(request)
