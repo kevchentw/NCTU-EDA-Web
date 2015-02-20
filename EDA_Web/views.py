@@ -10,9 +10,8 @@ import EDA_Web.ui as ui
 def home(request):
     if request.method == 'GET':
         d = {}
-        d = {}
-        d['news_list_1'] = NewsModel.objects.filter(top__exact=True)
-        d['news_list_0'] = NewsModel.objects.filter(top__exact=False)
+        d['news_list_1'] = NewsModel.objects.filter(top__exact=True).order_by('-modified_time')[:3]
+        d['news_list_0'] = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')[:6]
         return render(request, "home.html", d)
     elif request.method == 'POST':
         return response('')
