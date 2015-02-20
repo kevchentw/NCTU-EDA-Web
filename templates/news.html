@@ -3,6 +3,42 @@
     {% csrf_token %}
     <div class="ui centered grid" style="margin-top:75px">
         <div class="fourteen wide column">
+            {{ message|safe }}
+            {{ debug }}
+            {% if user.is_authenticated %}
+                <div class="ui segment">
+                    <form class="ui form" method="post" action=""> {% csrf_token %}
+                        <input name="req" type="hidden" value="add">
+                        <input name="author" type="hidden" value="{{ user.name }}">
+                        <h4 class="ui dividing header">新增新聞</h4>
+
+                        <div class="field">
+                            <label>標題</label>
+                            <input name="title" type="text">
+                        </div>
+                        <div class="field">
+                            <label>內容</label>
+                            <textarea name="content"></textarea>
+                        </div>
+                        <div class="field">
+                            <label>分類</label>
+                            <select name="classification" class="ui dropdown">
+                                <option value="">分類</option>
+                                <option value="獲獎">獲獎</option>
+                                <option value="招生">招生</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input name="top" type="radio" value="1">
+                                <label>置頂</label>
+                            </div>
+                        </div>
+                        <button class="ui submit orange button">確認</button>
+                    </form>
+                </div>
+            {% endif %}
+
             <div class="ui segment">
                 <a class="ui teal ribbon label">頂置</a>
                 {% for news in news_list_1 %}
@@ -11,7 +47,6 @@
                             <div class="item">
                                 <div class="content">
                                     <a class="header">{{ news.title }}</a>
-
                                     <div class="meta">
 								<span class="cinema">
                                     {% if news.modified %}更新時間:{{ news.modified_time.year }}-
@@ -95,4 +130,12 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ui.checkbox')
+                    .checkbox()
+            ;
+        });
+    </script>
 {% endblock %}
