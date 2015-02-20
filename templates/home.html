@@ -13,36 +13,29 @@
 				<div class="ui segment">
 					<div class="ui animated list">
 						<!--頂置item start-->
+                        {% for news in news_list_1 %}
 						<div class="item">
 							<div class="ui vertcal segment">
 								<i class="announcement icon"></i>
-								<div class="ui red horizontal label">招生</div>
-								<b>Description</b>
+
+                                <div class="ui blue horizontal label">置頂</div>
+                                <div class="ui green horizontal label">{{ news.classification }}</div>
+                                <b>{{ news.title }}</b>
 							</div>
 						</div>
-						<div class="item">
-							<div class="ui vertcal segment">
-								<i class="announcement icon"></i>
-								<div class="ui purple horizontal label">獲獎</div>
-								<b>Description</b>
-							</div>
-						</div>
+                        {% endfor %}
 						<!--頂置item end-->
 						<!--公告item start-->
+                        {% for news in news_list_0 %}
 						<div class="item">
 							<div class="ui vertcal segment">
-								<i class="info icon"></i>
-								<div class="ui red horizontal label">招生</div>
-								<b>Description</b>
+                                <i class="announcement icon"></i>
+
+                                <div class="ui green horizontal label">{{ news.classification }}</div>
+                                <b>{{ news.title }}</b>
 							</div>
 						</div>
-						<div class="item">
-							<div class="ui vertcal segment">
-								<i class="info icon"></i>
-								<div class="ui purple horizontal label">獲獎</div>
-								<b>Description</b>
-							</div>
-						</div>
+                        {% endfor %}
 						<!--公告item end-->
 					</div>
 				</div>
