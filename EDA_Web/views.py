@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import HttpResponse as response
 from news.models import NewsModel
 from EDA_Web.service import Service
+import EDA_Web.ui as ui
 
 
 def home(request):
@@ -14,28 +16,22 @@ def home(request):
 
 def news(request):
     if request.method == 'GET':
-        err, news_list = Service.News.get_news_all()
-        d = {}
-        nl = []
-        ntl = []
-        for n in news_list:
-            if n.top:
-                ntl.append(n)
-            else:
-                nl.append(n)
-        d['news_list_0'] = nl
-        d['news_list_1'] = ntl
+        err, d = Service.News.get_news_all_dict()
         return render(request, "news.html", d)
     elif request.method == 'POST':
-        req = request.POST['req']
+        req = request.POST.get('req', 'err')
+        title = request.POST.get('title', 'Untitled')
+        content = request.POST.get('content', 'No content')
+        author = request.POST.get('author', 'Anonymous')
+        classification = request.POST.get('classification', '未分類')
+        top = request.POST.get('top', False)
+        if top:
+            top = True
         if req == 'add':
-            title = str(request.POST['title'])
-            top = True if str(request.POST['top']) == '1' else False
-            content = str(request.POST['content'])
-            author = str(request.POST['author'])
-            classification = str(request.POST['classification'])
             err, nid = Service.News.add_news(title, top, content, author, classification)
-            return response(str(nid))
+            err, d = Service.News.get_news_all_dict()
+            d['message'] = ui.message("新增成功", "編號:" + str(nid), "blue")
+            return render(request, "news.html", d)
         elif req == 'del':
             nid = request.POST['nid']
             err, nid = Service.News.del_news(nid)
@@ -43,11 +39,6 @@ def news(request):
                 return response(err)
             return response('S')
         elif req == 'mod':
-            title = str(request.POST['title'])
-            top = True if str(request.POST['top']) == '1' else False
-            content = str(request.POST['content'])
-            author = str(request.POST['author'])
-            classification = str(request.POST['classification'])
             err, nid = Service.News.mod_news(title, top, content, author, classification)
             if err:
                 return response(err)
@@ -149,3 +140,7 @@ def ylli_research(request):
 
 def logout(request):
     logout(request)
+
+
+def reset(request):
+    NewsModel.objects.all().delete()
