@@ -21,6 +21,7 @@ urlpatterns = patterns('',
                        url(r'^tyho_research/', 'EDA_Web.views.tyho_research', name='tyho'),
                        url(r'^ylli/', 'EDA_Web.views.ylli', name='ylli'),
                        url(r'^ylli_research/', 'EDA_Web.views.ylli_research', name='ylli'),
+                       url(r'^reset/', 'EDA_Web.views.reset', name='reset'),
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^html/(?P<path>.*)$', 'django.views.static.serve',
                            {'document_root': '/home/administrator/NCTU-EDA-Web/html', })
