@@ -9,14 +9,20 @@ import EDA_Web.ui as ui
 
 def home(request):
     if request.method == 'GET':
-        return render(request, "home.html")
+        d = {}
+        d = {}
+        d['news_list_1'] = NewsModel.objects.filter(top__exact=True)
+        d['news_list_0'] = NewsModel.objects.filter(top__exact=False)
+        return render(request, "home.html", d)
     elif request.method == 'POST':
         return response('')
 
 
 def news(request):
     if request.method == 'GET':
-        err, d = Service.News.get_news_all_dict()
+        d = {}
+        d['news_list_1'] = NewsModel.objects.filter(top__exact=True).order_by('-modified_time')
+        d['news_list_0'] = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')
         return render(request, "news.html", d)
     elif request.method == 'POST':
         req = request.POST.get('req', 'err')
@@ -29,7 +35,9 @@ def news(request):
             top = True
         if req == 'add':
             err, nid = Service.News.add_news(title, top, content, author, classification)
-            err, d = Service.News.get_news_all_dict()
+            d = {}
+            d['news_list_1'] = NewsModel.objects.filter(top__exact=True).order_by('-modified_time')
+            d['news_list_0'] = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')
             d['message'] = ui.message("新增成功", "編號:" + str(nid), "blue")
             return render(request, "news.html", d)
         elif req == 'del':

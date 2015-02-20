@@ -12,19 +12,22 @@ class NewsService:
 
     def get_news_all(self):
         nl = self.newsdb.all()
-        nl = sorted(nl, key=lambda news: news.modified_time, reverse = True)
+        nl = sorted(nl, key=lambda news: news.modified_time, reverse=True)
         return (None, nl)
 
-    def get_news_all_dict(self):
+    def get_news_all_dict(self, d={"init": "get_news_all_dict"}, top_num=10000000, non_top_num=10000000):
         err, news_list = self.get_news_all()
-        d = {}
         nl = []
         ntl = []
         for n in news_list:
             if n.top:
-                ntl.append(n)
+                if top_num > 0:
+                    ntl.append(n)
+                top_num -= 1
             else:
-                nl.append(n)
+                if non_top_num > 0:
+                    nl.append(n)
+                non_top_num -= 1
         d['news_list_0'] = nl
         d['news_list_1'] = ntl
         return (None, d)
@@ -37,7 +40,7 @@ class NewsService:
         elif len(list(cur)) == 0:
             return ('Enoexist', None)
         else:
-            reutrn('EDB', None)
+            return ('EDB', None)
         return (None, cur[0])
 
     def add_news(self, title, top, content, author, classification):
