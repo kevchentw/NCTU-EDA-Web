@@ -5,63 +5,93 @@
         <div class="fourteen wide column">
             <div class="ui segment">
                 <a class="ui teal ribbon label">頂置</a>
-				{% for news in news_list_1 %}
-                <div class="ui vertical segment">
-                    <div class="ui items">
-                        <div class="item">
-                            <div class="content">
-								<a class="header">{{news.title}}</a>
-                                <div class="meta">
+                {% for news in news_list_1 %}
+                    <div class="ui vertical segment">
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="content">
+                                    <a class="header">{{ news.title }}</a>
+
+                                    <div class="meta">
 								<span class="cinema">
                                     {% if news.modified %}更新時間:{{ news.modified_time.year }}-
                                         {{ news.modified_time.month }}-{{ news.modified_time.day }}
                                         {{ news.created_time.time }}{% endif %}
                                     發表時間:{{ news.created_time.year }}-{{ news.created_time.month }}-{{ news.created_time.day }} {{ news.created_time.time }}
                                 </span>
-                                </div>
-                                <div class="description">
-									{{news.content}}
-                                </div>
-                                <div class="extra">
-                                    <div class="ui right floated primary button">詳細閱讀
-                                        <i class="right chevron icon"></i></div>
-									<div class="ui red horizontal label">{{news.classification}}</div>
+                                    </div>
+                                    <div class="description">
+                                        {{ news.content }}
+                                    </div>
+                                    <div class="extra">
+                                        <div class="ui right floated primary button">詳細閱讀
+                                            <i class="right chevron icon"></i>
+                                        </div>
+                                        {% if user.is_authenticated %}
+                                            <div class="ui right floated green button"><i class="edit icon"></i>修改
+                                            </div>
+                                        {% endif %}
+                                        <div class="ui red horizontal label">{{ news.classification }}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-				{% endfor %}
+                {% endfor %}
             </div>
             <div class="ui segment">
                 <a class="ui orange ribbon label">公告</a>
-				{% for news in news_list_0 %}
-                <div class="ui vertical segment">
-                    <div class="ui items">
-                        <div class="item">
-                            <div class="content">
-								<a class="header">{{news.title}}</a>
-                                <div class="meta">
+                {% for news in news_list_0 %}
+                    <div class="ui vertical segment">
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="content">
+                                    <a class="header">{{ news.title }}</a>
+
+                                    <div class="meta">
 								<span class="cinema">
                                     {% if news.modified %}更新時間:{{ news.modified_time.year }}-
                                         {{ news.modified_time.month }}-{{ news.modified_time.day }}
                                         {{ news.created_time.time }}{% endif %}
                                     發表時間:{{ news.created_time.year }}-{{ news.created_time.month }}-{{ news.created_time.day }} {{ news.created_time.time }}
                             </span>
-                                </div>
-                                <div class="description">
-									{{news.content}}
-                                </div>
-                                <div class="extra">
-                                    <div class="ui right floated primary button">詳細閱讀
-                                        <i class="right chevron icon"></i></div>
-									<div class="ui red horizontal label">{{news.classification}}</div>
+                                    </div>
+                                    <div class="description">
+                                        {{ news.content }}
+                                    </div>
+                                    <div class="extra">
+                                        <div class="ui right floated primary button">詳細閱讀
+                                            <i class="right chevron icon"></i>
+                                        </div>
+                                        {% if user.is_authenticated %}
+                                            <div class="ui right floated green button"><i class="edit icon"></i>修改
+                                            </div>
+                                        {% endif %}
+                                        <div class="ui red horizontal label">{{ news.classification }}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                {% endfor %}
+            </div>
+            <div class="ui centered grid">
+                <div class="middle aligned column">
+                    <div class="ui borderless pagination menu">
+                        <a class="item">
+                            <i class="left arrow icon"></i> 上一頁
+                        </a>
+                        <a class="item">1</a>
+                        <a class="item">2</a>
+                        <a class="item">3</a>
+                        <a class="item">4</a>
+                        <a class="item">5</a>
+                        <a class="item">6</a>
+                        <a class="item">
+                            下一頁 <i class="icon right arrow"></i>
+                        </a>
+                    </div>
                 </div>
-				{% endfor %}
             </div>
         </div>
     </div>
