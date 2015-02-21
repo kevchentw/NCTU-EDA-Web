@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     {% csrf_token %}
+
     <div class="ui centered grid" style="margin-top:75px">
         <div class="fourteen wide column">
             {{ message|safe }}
@@ -11,7 +12,6 @@
                         <input name="req" type="hidden" value="add">
                         <input name="author" type="hidden" value="{{ user.name }}">
                         <h4 class="ui dividing header">新增新聞</h4>
-
                         <div class="field">
                             <label>標題</label>
                             <input name="title" type="text">
@@ -65,6 +65,8 @@
                                         {% if user.is_authenticated %}
                                             <div class="ui right floated green button"><i class="edit icon"></i>修改
                                             </div>
+                                            <div class="ui right floated red button"><i class="delete icon"></i>刪除
+                                            </div>
                                         {% endif %}
                                         <div class="ui red horizontal label">{{ news.classification }}</div>
                                     </div>
@@ -101,6 +103,15 @@
                                         {% if user.is_authenticated %}
                                             <div class="ui right floated green button"><i class="edit icon"></i>修改
                                             </div>
+                                            <div class="ui right floated red button"><i class="delete icon"></i>刪除
+                                            </div>
+                                            {% comment %}
+                                            <form>
+                                                <input name="nid" type="hidden" value="{{ news.nid }}">
+                                                <input name="req" type="hidden" value="del">
+                                                <button class="ui submit red button">確認刪除</button>
+                                            </form>
+                                            {% endcomment %}
                                         {% endif %}
                                         <div class="ui red horizontal label">{{ news.classification }}</div>
                                     </div>
