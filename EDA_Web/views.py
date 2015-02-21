@@ -162,24 +162,23 @@ def ylli_research(request):
     elif request.method == 'POST':
         return response('')
 
-
-def login(request):
+def Login(request):
     if request.method == 'GET':
         return render(request, 'login.html')
     if request.method == 'POST':
         if request.user.is_authenticated():
-            return response('already login')
+            return response('Ealready login')
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
-                login(request, user)
-                return redirect("")
+                login(request,user)
+                return response('S')
             else:
-                return response('disabled account')
+                return response('Edisabled account')
         else:
-            return response('invalid login')
+            return response('Einvalid login')
 
 
 def reset(request):
