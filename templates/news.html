@@ -47,6 +47,8 @@ $(document).ready(function(){
 			if(res=='S'){
 				alert('刪除成功');
 				location.reload();
+			}else if(res[0]=='E'){
+				alert(res);
 			}
 		});
 	});
