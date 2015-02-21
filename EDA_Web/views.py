@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
-from django.contrib.auth.views import logout, login
-from django.contrib.auth import authenticate
+from django.contrib.auth import logout, login, authenticate
 from django.shortcuts import HttpResponse as response
 from django.core.exceptions import ObjectDoesNotExist
 from news.models import NewsModel
 from EDA_Web.service import Service
-import EDA_Web.ui as ui
 
 
 def home(request):
@@ -158,6 +156,25 @@ def ylli_research(request):
         return render(request, "ylli_research.html")
     elif request.method == 'POST':
         return response('')
+
+
+def login(request):
+    if request.method == 'GET':
+        return render(request, 'login.html')
+    if request.method == 'POST':
+        if request.user.is_authenticated():
+            return response('already login')
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect("")
+            else:
+                return response('disabled account')
+        else:
+            return response('invalid login')
 
 
 def reset(request):
