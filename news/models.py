@@ -16,6 +16,7 @@ class NewsModel(models.Model):
     def __str__(self):
         return str(self.nid)
 
+
     def save(self, *args, **kwargs):
         if self.nid:
             self.modified = True
