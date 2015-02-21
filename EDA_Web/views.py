@@ -35,11 +35,7 @@ def news(request):
             top = True
         if req == 'add':
             err, nid = Service.News.add_news(title, top, content, author, classification)
-            d = {}
-            d['news_list_1'] = NewsModel.objects.filter(top__exact=True).order_by('-modified_time')
-            d['news_list_0'] = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')
-            d['message'] = ui.message("新增成功", "編號:" + str(nid), "blue")
-            return render(request, "news.html", d)
+            return response(str(nid))
         elif req == 'del':
             nid = request.POST['nid']
             err, nid = Service.News.del_news(nid)
