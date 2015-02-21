@@ -26,12 +26,26 @@ $(document).ready(function(){
 			'top':top,
 			'author':author,
 			'classification':classification,
-			'csrfmiddlewaretoken':csrfmiddlewaretoken
+			'csrfmiddlewaretoken':'{{ csrf_token }}'
 		},function(res){
 			if(res[0]=='E'){
 				alert(res);
 			}else{
 				alert('新增成功');
+				location.reload();
+			}
+		});
+	});
+	$('div.del').click(function(){
+		var nid=$(this).find('input').val();
+		var csrfmiddlewaretoken=$('input[name=csrfmiddlewaretoken]').val();
+		$.post('/news/',{
+			'req':'del',
+			'nid':nid,
+			'csrfmiddlewaretoken':'{{ csrf_token }}'
+		},function(res){
+			if(res=='S'){
+				alert('刪除成功');
 				location.reload();
 			}
 		});
@@ -44,7 +58,7 @@ $(document).ready(function(){
             {{ debug }}
             {% if user.is_authenticated %}
                 <div class="ui segment">
-                    <form class="ui form" method="post" action=""> {% csrf_token %}
+					<form class="ui form" method="post" action="">
                         <input name="req" type="hidden" value="add">
                         <input name="author" type="hidden" value="{{ user.name }}">
                         <h4 class="ui dividing header">新增新聞</h4>
@@ -101,7 +115,8 @@ $(document).ready(function(){
                                         {% if user.is_authenticated %}
                                             <div class="ui right floated green button"><i class="edit icon"></i>修改
                                             </div>
-                                            <div class="ui right floated red button"><i class="delete icon"></i>刪除
+											<div class="ui right floated red button del"><i class="delete icon"></i>刪除
+												<input type="hidden" value="{{news.nid}}"></input>
                                             </div>
                                         {% endif %}
                                         <div class="ui red horizontal label">{{ news.classification }}</div>
@@ -139,7 +154,8 @@ $(document).ready(function(){
                                         {% if user.is_authenticated %}
                                             <div class="ui right floated green button"><i class="edit icon"></i>修改
                                             </div>
-                                            <div class="ui right floated red button"><i class="delete icon"></i>刪除
+											<div class="ui right floated red button del"><i class="delete icon"></i>刪除
+												<input type="hidden" value="{{ news.nid }}"></input>
                                             </div>
                                             {% comment %}
                                             <form>
