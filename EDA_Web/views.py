@@ -42,7 +42,8 @@ def news(request):
                 nid = request.POST.get('nid', '-1')
                 NewsModel.objects.get(nid__exact=nid).delete()
             except ObjectDoesNotExist:
-                return response('S')
+                return response('Enoexist')    
+            return response('S')
         elif req == 'mod':
             err, nid = Service.News.mod_news(title, top, content, author, classification)
             if err:
