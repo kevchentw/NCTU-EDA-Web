@@ -13,13 +13,14 @@
     <!-- Import css and javascript -->
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.js"></script>
 
 </head>
 <body>
-<div style="background-color: #1b1c1d; padding: 10px; width: 100%; z-index: 1001;position: fixed; top:0;">
-    <div class="ui inverted menu grid">
+<div style="background-color: #22C3AA; padding: 10px; width: 100%; z-index: 1001;position: fixed; top:0;">
+    <div class="ui inverted menu grid" style="background-color: #22C3AA">
         <div class="mobile only row" style="padding:0;">
             <a class="item" href="/"> EDA實驗室 </a>
             <a class="item" href="/"> mobile </a>
@@ -154,34 +155,41 @@
 {% endblock content %}
 <!--footer for contact info-->
 <footer>
-	<div style="background-color: #D0D0D0; padding: 10px; width: 100%; z-index: 1001;position: fixed; bottom:0;">
-		<div class="ui middle aligned three column grid">
-			<div class ="row">
-				<div class="column center aligned">
-					<p>
-						<b>EDA 實驗室</b>
-						<br>
-						<b>EDA, a great idea!</b>
-					</p>
-				</div>
-				<div class="column center aligned">
-					<p>
-						<a class="item" href="http://www.nctu.edu.tw/"> 國立交通大學首頁 </a><br>
-						<a class="item" href="https://www.cs.nctu.edu.tw/cswebsite/"> 交大資工學系首頁 </a><br>
-						<a class="item" href="http://www.ccs.nctu.edu.tw/"> 交大資工學院首頁 </a><br>
-					</p>
-				</div>
-				<div class="column center aligned">
-					<p>
-						<a class="item" href=""> 李毅郎教授 </a><br>
-						<a class="item" href=""> 何宗易教授 </a><br>
-						<a class="item" href=""> 吳凱強助理教授 </a><br>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <br>
+
+    <div style="background-color: #DB6968; padding: 60px; width: 100%; z-index: 1001; button:0;">
+        <div class="ui stackable divided grid"
+             style='color:white ;font-size: large; font-family: "Arial", "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "標楷體", "DFKai-SB", "sans-serif";'>
+            <div class="five wide center aligned  column">
+                <i class="huge idea icon"></i>
+
+                <div class="ui list">
+                    <div class="item" style="font-family: 'Josefin Sans', sans-serif;">EDA, A Great Idea!</div>
+                </div>
+            </div>
+            <div class="five wide center aligned  column">
+                <i class="huge browser icon"></i>
+
+                <div class="ui link list">
+                    <a style='color:white' class="item" href="http://www.nctu.edu.tw/"> 國立交通大學首頁 </a>
+                    <a style='color:white' class="item" href="https://www.cs.nctu.edu.tw/cswebsite/"> 交大資工學系首頁 </a>
+                    <a style='color:white' class="item" href="http://www.ccs.nctu.edu.tw/"> 交大資工學院首頁 </a>
+                </div>
+            </div>
+            <div class="five wide center aligned column">
+                <i class="huge user icon"></i>
+
+                <div class="ui link list">
+                    <a style='color:white' class="item" href=""> 李毅郎教授 </a>
+                    <a style='color:white' class="item" href=""> 何宗易教授 </a>
+                    <a style='color:white' class="item" href=""> 吳凱強助理教授 </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
+
+
 <script text="text/javascript">
     $(document).ready(function () {
         $('.ui.dropdown')
