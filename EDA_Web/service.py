@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from news.models import NewsModel
 
+def log(s):
+    f = open('log','a')
+    f.write(str(s))
+    f.close()
+    return
 
 class Service:
     pass
@@ -37,10 +42,8 @@ class NewsService:
                               'WHERE "news_newsmodel"."nid" = %s', [nid])
         if len(list(cur)) > 1:
             return ('Eduplicate', None)
-        elif len(list(cur)) == 0:
+        elif len(list(cur)) <= 0:
             return ('Enoexist', None)
-        else:
-            return ('EDB', None)
         return (None, cur[0])
 
     def add_news(self, title, top, content, author, classification):
@@ -56,6 +59,7 @@ class NewsService:
         return (None, nid)
 
     def mod_news(self, nid, title, top, content, author, classification):
+        log(nid)
         err, n = self.get_news_by_id(nid)
         if err:
             return (err, None)
@@ -64,6 +68,8 @@ class NewsService:
         n.content = content
         n.author = author
         n.classification = classification
+        log('saved')
         n.save()
+        log('saved')
         return (None, nid)
 

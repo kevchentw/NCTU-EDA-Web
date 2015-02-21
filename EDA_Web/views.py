@@ -5,7 +5,11 @@ from django.shortcuts import HttpResponse as response
 from django.core.exceptions import ObjectDoesNotExist
 from news.models import NewsModel
 from EDA_Web.service import Service
-
+def log(s):
+    f = open('log','a')
+    f.write(str(s))
+    f.close()
+    return
 
 def home(request):
     if request.method == 'GET':
@@ -48,7 +52,8 @@ def news(request):
                 return response('noexist')
             return response('S')
         elif req == 'mod':
-            err, nid = Service.News.mod_news(title, top, content, author, classification)
+            nid  = request.POST.get('nid','-1')
+            err, nid = Service.News.mod_news(nid, title, top, content, author, classification)
             if err:
                 return response(err)
             return response(str(nid))

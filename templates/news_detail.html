@@ -1,5 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
+<script>
+$(document).ready(function(){
+	$('button.mod')	.click(function(){
+		var title=$('input[name=title]').val();
+		var content=$('textarea[name=content]').val();
+		var top=$('input[name=top]:checked').val()||'0';
+		var author=$('input[name=author]').val();
+		var classification=$('select[name=classification]').val();
+		var csrfmiddlewaretoken=$('input[name=csrfmiddlewaretoken]').val();
+		alert(author);
+		if(title==''){
+			alert('請輸入標題');
+			return;
+		}else if(content==''){
+			alert('請輸入內文');
+			return;
+		}else if(classification==''){
+			alert('請選擇分類');
+			return;
+		}
+		$.post('/news/',{
+			'req':'mod',
+			'nid':{{ news.nid }},
+			'title':title,
+			'content':content,
+			'top':top,
+			'author':author,
+			'classification':classification,
+			'csrfmiddlewaretoken':'{{ csrf_token }}'
+		},function(res){
+			if(res[0]=='E'){
+				alert(res);
+			}else{
+				alert('修改成功');
+				location.reload();
+			}
+		});
+	});
+})
+</script>
     <div class="ui centered grid" style="margin-top:75px">
         <div class="fourteen wide column">
             {% if user.is_authenticated %}
@@ -8,7 +48,7 @@
                         <h4 class="ui dividing header">修改新聞</h4>
                         <div class="field">
                             <label>發表人</label>
-                            <input name="title" value="{{ news.author }}" type="text">
+                            <input name="author" value="{{ news.author }}" type="text">
                         </div>
                         <div class="field">
                             <label>標題</label>
@@ -32,7 +72,7 @@
                                 <label>置頂</label>
                             </div>
                         </div>
-                        <button type="submit" class="ui submit orange button">確認</button>
+                        <button type="button" class="ui submit orange button mod">確認</button>
                     </form>
                 </div>
             {% endif %}
