@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-
 from news.models import NewsModel
 
-def log(s):
-    f = open('log','a')
-    f.write(str(s))
-    f.close()
-    return
-
 class Service:
     pass
 
@@ -59,7 +53,6 @@ class NewsService:
         return (None, nid)
 
     def mod_news(self, nid, title, top, content, author, classification):
-        log(nid)
         err, n = self.get_news_by_id(nid)
         if err:
             return (err, None)
@@ -68,8 +61,6 @@ class NewsService:
         n.content = content
         n.author = author
         n.classification = classification
-        log('saved')
         n.save()
-        log('saved')
         return (None, nid)
 
