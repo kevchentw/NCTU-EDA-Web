@@ -35,6 +35,7 @@ def news(request):
         if top:
             top = True
         if req == 'add':
+            author = request.user.username
             err, nid = Service.News.add_news(title, top, content, author, classification)
             return response(str(nid))
         elif req == 'del':
