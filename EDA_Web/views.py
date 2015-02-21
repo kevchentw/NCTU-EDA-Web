@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
-from django.contrib.auth import logout, login, authenticate
+from django.contrib.auth import logout, login as auth_login, authenticate
 from django.shortcuts import HttpResponse as response
 from django.core.exceptions import ObjectDoesNotExist
 from news.models import NewsModel
@@ -162,7 +162,7 @@ def ylli_research(request):
     elif request.method == 'POST':
         return response('')
 
-def Login(request):
+def login(request):
     if request.method == 'GET':
         return render(request, 'login.html')
     if request.method == 'POST':
@@ -173,8 +173,8 @@ def Login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
-                login(request,user)
-                return response('S')
+                auth_login(request, user)
+                return redirect("/")
             else:
                 return response('Edisabled account')
         else:

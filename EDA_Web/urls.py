@@ -7,7 +7,7 @@ from EDA_Web.service import NewsService
 urlpatterns = patterns('',
                        url(r'^$', 'EDA_Web.views.home', name='home'),
                        url(r'^logout/', 'django.contrib.auth.views.logout', {'next_page': '/'}),
-                       url(r'^login/', 'EDA_Web.views.Login', name='Login'),
+                       url(r'^login/', 'EDA_Web.views.login', name='login'),
                        url(r'^about/', 'EDA_Web.views.about', name='about'),
                        url(r'^achievement/', 'EDA_Web.views.achievement', name='achievement'),
                        url(r'^activity/', 'EDA_Web.views.activity', name='activity'),
