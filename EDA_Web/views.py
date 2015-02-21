@@ -31,7 +31,7 @@ def news(request):
         content = request.POST.get('content', 'No content')
         author = request.POST.get('author', 'Anonymous')
         classification = request.POST.get('classification', '未分類')
-        top = request.POST.get('top', False)
+        top = True if request.POST.get('top', False) == '1' else False
         if top:
             top = True
         if req == 'add':
