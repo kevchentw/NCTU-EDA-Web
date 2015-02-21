@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
-from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.views import logout, login
+from django.contrib.auth import authenticate
 from django.shortcuts import HttpResponse as response
 from news.models import NewsModel
 from EDA_Web.service import Service
@@ -143,10 +144,6 @@ def ylli_research(request):
         return render(request, "ylli_research.html")
     elif request.method == 'POST':
         return response('')
-
-
-def logout(request):
-    logout(request)
 
 
 def reset(request):
