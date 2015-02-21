@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import logout, login
 from django.contrib.auth import authenticate
 from django.shortcuts import HttpResponse as response
+from django.core.exceptions import ObjectDoesNotExist
 from news.models import NewsModel
 from EDA_Web.service import Service
 import EDA_Web.ui as ui
@@ -37,11 +38,11 @@ def news(request):
             err, nid = Service.News.add_news(title, top, content, author, classification)
             return response(str(nid))
         elif req == 'del':
-            nid = request.POST['nid']
-            err, nid = Service.News.del_news(nid)
-            if err:
-                return response(err)
-            return response('S')
+            try:
+                nid = request.POST.get('nid', '-1')
+                NewsModel.objects.get(nid__exact=nid).delete()
+            except ObjectDoesNotExist:
+                return response('S')
         elif req == 'mod':
             err, nid = Service.News.mod_news(title, top, content, author, classification)
             if err:
