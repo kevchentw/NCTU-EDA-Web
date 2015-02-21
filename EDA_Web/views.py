@@ -40,9 +40,13 @@ def news(request):
         elif req == 'del':
             try:
                 nid = request.POST.get('nid', '-1')
-                NewsModel.objects.get(nid__exact=nid).delete()
+                if nid.isdigit():
+                    nid = int(nid)
+                    NewsModel.objects.get(nid__exact=nid).delete()
+                else:
+                    return response('noexist')
             except ObjectDoesNotExist:
-                return response('Enoexist')    
+                return response('noexist')
             return response('S')
         elif req == 'mod':
             err, nid = Service.News.mod_news(title, top, content, author, classification)
@@ -51,6 +55,17 @@ def news(request):
             return response(str(nid))
 
         return response('undefined')
+
+
+def news_detail(request, nid):
+    if request.method == "GET":
+        if nid.isdigit():
+            nid = int(nid)
+            d = {}
+            d['news'] = NewsModel.objects.get(nid__exact=nid)
+            return render(request, "news_detail.html", d)
+        else:
+            return response('noexist')
 
 
 def feeds(request):
