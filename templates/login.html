@@ -1,47 +1,84 @@
 {% extends "base.html" %}
 {% block content %}
-<script>
-$(document).ready(function(){
-	$('button.login').click(function(){
-		var username = $('input[name=username]').val();
-		var password = $('input[name=password]').val();
-		$.post('/login/',{
-			'username':username,
-			'password':password,
-			'csrfmiddlewaretoken':'{{ csrf_token }}'
-		},function(res){
-			if(res[0]=='E'){
-				if(res[1]=='d'){
-					alert('account is disabled');
-				}else if(res[1]=='i'){
-					alert('錯誤的帳號或密碼');
-				}else if(res[1]=='a'){
-					alert('你已經登入了');
-					location = '/';
-				}
-			}else{
-				location = '/';
-			}
-		})
-	});	
-});
-</script>
+    <script>
+        $(document).ready(function(){
+            $('button.login').click(function(){
+                var username = $('input[name=username]').val();
+                var password = $('input[name=password]').val();
+                $.post('/login/',{
+                    'username':username,
+                    'password':password,
+                    'csrfmiddlewaretoken':'{{ csrf_token }}'
+                },function(res){
+                    if(res[0]=='E'){
+                        if(res[1]=='d'){
+                            alert('account is disabled');
+                        }else if(res[1]=='i'){
+                            alert('錯誤的帳號或密碼');
+                        }else if(res[1]=='a'){
+                            alert('你已經登入了');
+                            location = '/';
+                        }
+                    }else{
+                        location = '/';
+                    }
+                })
+            });
+        });
+    </script>
     <div class="ui centered grid" style="margin-top:75px">
-        <div class="six wide column">
-			<div class="ui segment">
-                <form class="ui form" method="post" action="/login/"> {% csrf_token %}
-                    <h4 class="ui dividing header">登入</h4>
-
-                    <div class="field">
-                        <label>帳號</label>
-                        <input name="username" type="text">
-                    </div>
-                    <div class="field">
-                        <label>密碼</label>
-                        <input name="password" type="password">
-                    </div>
-                    <button type="button" class="ui submit blue button login">登入</button>
-                </form>
+        <div class="mobile only row">
+            <div class="fourteen wide centered column">
+                <div class="ui segment">
+                    <form class="ui form" method="post" action="/login/"> {% csrf_token %}
+                        <h4 class="ui dividing header">登入</h4>
+                        <div class="field">
+                            <label>帳號</label>
+                            <input name="username" type="text">
+                        </div>
+                        <div class="field">
+                            <label>密碼</label>
+                            <input name="password" type="password">
+                        </div>
+                        <button type="button" class="ui submit blue button login">登入</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="tablet only row">
+            <div class="six wide centered column">
+                <div class="ui segment">
+                    <form class="ui form" method="post" action="/login/"> {% csrf_token %}
+                        <h4 class="ui dividing header">登入</h4>
+                        <div class="field">
+                            <label>帳號</label>
+                            <input name="username" type="text">
+                        </div>
+                        <div class="field">
+                            <label>密碼</label>
+                            <input name="password" type="password">
+                        </div>
+                        <button type="button" class="ui submit blue button login">登入</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="computer only row">
+            <div class="four wide centered column">
+                <div class="ui segment">
+                    <form class="ui form" method="post" action="/login/"> {% csrf_token %}
+                        <h4 class="ui dividing header">登入</h4>
+                        <div class="field">
+                            <label>帳號</label>
+                            <input name="username" type="text">
+                        </div>
+                        <div class="field">
+                            <label>密碼</label>
+                            <input name="password" type="password">
+                        </div>
+                        <button type="button" class="ui submit blue button login">登入</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
