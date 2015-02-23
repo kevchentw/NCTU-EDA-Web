@@ -103,7 +103,7 @@ def downloads(request):
         req = request.POST.get('req','')
         if req == 'add':
             description = request.POST.get('description', '')
-            classification = request.POST.get('classification','')
+            classification = request.POST.get('classification', '')
             uploader = request.POST.get('uploader', '')
             filename = str(request.FILES['attach_file'])
             err, did = Service.Downloads.add_downloads(filename, description, classification, uploader, request.FILES['attach_file'])

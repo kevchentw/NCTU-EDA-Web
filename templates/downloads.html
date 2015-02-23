@@ -22,14 +22,14 @@ $(document).ready(function(){
 			xhr: function() {
 				var myXhr = $.ajaxSettings.xhr();
 				if(myXhr.upload){
-					myXhr.upload.addEventListener('progress',progresshandler, false);
+					myXhr.upload.addEventListener('progress', progresshandler, false);
 				}
 				return myXhr;
 			},
 			beforeSend: function(){},
 			success: function(res){
 				if(res[0] == 'E'){
-					if(res=='Eexist'){
+					if(res == 'Eexist'){
 						alert('已存在同檔名的檔案，請換一個檔名');
 					}
 				}else{
@@ -45,7 +45,7 @@ $(document).ready(function(){
 	});
 	var progressbar = $('.basic.progress');
 	function progresshandler(e){
-		var Percent=100*e.loaded/e.total;
+		var Percent = 100 * e.loaded / e.total;
 		progressbar.progress({
 			label: false,
 			value: Percent,
@@ -116,11 +116,11 @@ $(document).ready(function(){
 						{% for download in downloads0 %}
 						<tr>
 							<td class="collapsing">
-								<i class="folder icon"></i> <a href="/html/{{download.filename}}">{{ download.filename }}</a>
+								<i class="folder icon"></i> <a href="/html/{{ download.filename }}">{{ download.filename }}</a>
 							</td>
 							<td>{{ download.description }}</td>
 							<td>{{ download.uploader }}</td>
-							<td class="right aligned collapsing">{{download.created_time.year}}/{{ download.created_time.month }}/{{download.created_time.day}}</td>
+							<td class="right aligned collapsing">{{ download.created_time.year }}/{{ download.created_time.month }}/{{ download.created_time.day }}</td>
 						</tr>
 						{% endfor %}
                 	</tbody>
@@ -142,11 +142,11 @@ $(document).ready(function(){
 						{% for download in downloads1 %}
 						<tr>
 							<td class="collapsing">
-								<i class="folder icon"></i> <a href="/html/{{download.filename}}">{{ download.filename }}</a>
+								<i class="folder icon"></i> <a href="/html/{{ download.filename }}">{{ download.filename }}</a>
 							</td>
 							<td>{{ download.description }}</td>
 							<td>{{ download.uploader }}</td>
-							<td class="right aligned collapsing">{{download.created_time.year}}/{{ download.created_time.month }}/{{download.created_time.day}}</td>
+							<td class="right aligned collapsing">{{ download.created_time.year }}/{{ download.created_time.month }}/{{ download.created_time.day }}</td>
 						</tr>
 						{% endfor %}
                 	</tbody>

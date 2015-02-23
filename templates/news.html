@@ -3,32 +3,31 @@
 <script>
 $(document).ready(function(){
 	$('button.add').click(function(){
-		var title=$('input[name=title]').val();
-		var content=$('textarea[name=content]').val();
-		var top=$('input[name=top]:checked').val()||'0';
-		var author=$('input[name=author]').val();
-		var classification=$('select[name=classification]').val();
-		var csrfmiddlewaretoken=$('input[name=csrfmiddlewaretoken]').val();
-		if(title==''){
+		var title = $('input[name=title]').val();
+		var content = $('textarea[name=content]').val();
+		var top = $('input[name=top]:checked').val()||'0';
+		var author = $('input[name=author]').val();
+		var classification = $('select[name=classification]').val();
+		if(title == ''){
 			alert('請輸入標題');
 			return;
-		}else if(content==''){
+		}else if(content == ''){
 			alert('請輸入內文');
 			return;
-		}else if(classification==''){
+		}else if(classification == ''){
 			alert('請選擇分類');
 			return;
 		}
-		$.post('/news/',{
-			'req':'add',
-			'title':title,
-			'content':content,
-			'top':top,
-			'author':author,
-			'classification':classification,
-			'csrfmiddlewaretoken':'{{ csrf_token }}'
+		$.post('/news/', {
+			'req': 'add',
+			'title': title,
+			'content': content,
+			'top': top,
+			'author': author,
+			'classification': classification,
+			'csrfmiddlewaretoken': '{{ csrf_token }}'
 		},function(res){
-			if(res[0]=='E'){
+			if(res[0] == 'E'){
 				alert(res);
 			}else{
 				alert('新增成功');
@@ -37,17 +36,16 @@ $(document).ready(function(){
 		});
 	});
 	$('div.del').click(function(){
-		var nid=$(this).find('input').val();
-		var csrfmiddlewaretoken=$('input[name=csrfmiddlewaretoken]').val();
-		$.post('/news/',{
-			'req':'del',
-			'nid':nid,
-			'csrfmiddlewaretoken':'{{ csrf_token }}'
+		var nid = $(this).find('input').val();
+		$.post('/news/', {
+			'req': 'del',
+			'nid': nid,
+			'csrfmiddlewaretoken': '{{ csrf_token }}'
 		},function(res){
-			if(res=='S'){
+			if(res == 'S'){
 				alert('刪除成功');
 				location.reload();
-			}else if(res[0]=='E'){
+			}else if(res[0] == 'E'){
 				alert(res);
 			}
 		});
@@ -56,7 +54,6 @@ $(document).ready(function(){
 </script>
     <div class="ui centered grid" style="margin-top:75px">
         <div class="fourteen wide column">
-            {{ message|safe }}
             {{ debug }}
             {% if user.is_authenticated %}
                 <div class="ui segment">
