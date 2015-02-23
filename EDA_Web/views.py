@@ -4,6 +4,7 @@ from django.contrib.auth import logout, login as auth_login, authenticate
 from django.shortcuts import HttpResponse as response
 from django.core.exceptions import ObjectDoesNotExist
 from news.models import NewsModel
+from downloads.models import DownloadsModel
 from EDA_Web.service import Service
 def log(s):
     f = open('log','a')
@@ -94,7 +95,10 @@ def about(request):
 
 def downloads(request):
     if request.method == 'GET':
-        return render(request, "downloads.html")
+        d = {}
+        d['downloads0'] = DownloadsModel.objects.filter(classification__exact='論文').order_by('-created_time')
+        d['downloads1'] = DownloadsModel.objects.filter(classification__exact='文件').order_by('-created_time')
+        return render(request, "downloads.html", d)
     elif request.method == 'POST':
         req = request.POST.get('req','')
         if req == 'add':
@@ -107,6 +111,12 @@ def downloads(request):
                 return response(err)
             return response(str(did))
         elif req == 'del':
+            did = request.POST.get('did','-1')
+            try:
+                DownloadsModels.objects.get(did__exact=did).delete()
+                return response(str(did))
+            except ObjectDoesNotExist:
+                return response('Enoexist')
             pass
         elif req == 'mod':
             pass

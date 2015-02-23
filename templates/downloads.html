@@ -105,53 +105,25 @@ $(document).ready(function(){
                 <a class="ui blue ribbon label">論文下載</a>
                 <table class="ui celled striped table">
                     <thead>
-                    <tr>
-                        <th>檔名</th>
-                        <th>資訊</th>
-                        <th>上傳者</th>
-                        <th>上傳日期</th>
-                    </tr></thead><tbody>
-                <tr>
-                    <td class="collapsing">
-                        <i class="folder icon"></i> something
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned collapsing">2014/05/14</td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="file archive outline icon"></i> star.zip
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned">2014/04/09</td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="file word outline icon"></i> foo.docx
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned">2014/02/04</td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="file pdf outline icon"></i> bar.pdf
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned">2014/01/04</td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="file powerpoint outline icon"></i> abc.pptx
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned">2014/01/01</td>
-                </tr>
-                </tbody>
+                    	<tr>
+                        	<th>檔名</th>
+                        	<th>資訊</th>
+                        	<th>上傳者</th>
+                        	<th>上傳日期</th>
+                    	</tr>
+					</thead>
+					<tbody>
+						{% for download in downloads0 %}
+						<tr>
+							<td class="collapsing">
+								<i class="folder icon"></i> <a href="/html/{{download.filename}}">{{ download.filename }}</a>
+							</td>
+							<td>{{ download.description }}</td>
+							<td>{{ download.uploader }}</td>
+							<td class="right aligned collapsing">{{download.created_time.year}}/{{ download.created_time.month }}/{{download.created_time.day}}</td>
+						</tr>
+						{% endfor %}
+                	</tbody>
                 </table>
             </div>
             <br>
@@ -159,53 +131,25 @@ $(document).ready(function(){
                 <a class="ui green ribbon label">文件下載</a>
                 <table class="ui celled striped table">
                     <thead>
-                    <tr>
-                        <th>檔名</th>
-                        <th>資訊</th>
-                        <th>上傳者</th>
-                        <th>上傳日期</th>
-                    </tr></thead><tbody>
-                <tr>
-                    <td class="collapsing">
-                        <i class="folder icon"></i> something
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned collapsing">2014/05/14</td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="file archive outline icon"></i> star.zip
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned">2014/04/09</td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="file word outline icon"></i> foo.docx
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned">2014/02/04</td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="file pdf outline icon"></i> bar.pdf
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned">2014/01/04</td>
-                </tr>
-                <tr>
-                    <td>
-                        <i class="file powerpoint outline icon"></i> abc.pptx
-                    </td>
-                    <td>Initial commit</td>
-                    <td>吳凱強</td>
-                    <td class="right aligned">2014/01/01</td>
-                </tr>
-                </tbody>
+						<tr>
+							<th>檔名</th>
+							<th>資訊</th>
+							<th>上傳者</th>
+							<th>上傳日期</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for download in downloads1 %}
+						<tr>
+							<td class="collapsing">
+								<i class="folder icon"></i> <a href="/html/{{download.filename}}">{{ download.filename }}</a>
+							</td>
+							<td>{{ download.description }}</td>
+							<td>{{ download.uploader }}</td>
+							<td class="right aligned collapsing">{{download.created_time.year}}/{{ download.created_time.month }}/{{download.created_time.day}}</td>
+						</tr>
+						{% endfor %}
+                	</tbody>
                 </table>
             </div>
         </div>
