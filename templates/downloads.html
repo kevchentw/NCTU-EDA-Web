@@ -1,7 +1,106 @@
 {% extends "base.html" %}
 {% block content %}
+<script>
+$(document).ready(function(){
+	$('#progress').hide();
+	$('button.add').click(function(){
+		var file = document.getElementById('attach_file').files[0];
+		var classification = $('select[name=classification]').val();
+		if(classification == ''){
+			alert('請選擇分類');
+			return;
+		}
+		if(typeof(file) == 'undefined'){
+			alert('請選擇檔案');
+			return;
+		}
+		var formdata = new FormData($('form')[0]);
+		$('#progress').show();
+		$.ajax({
+			url: '/downloads/',
+			type: 'POST',
+			xhr: function() {
+				var myXhr = $.ajaxSettings.xhr();
+				if(myXhr.upload){
+					myXhr.upload.addEventListener('progress',progresshandler, false);
+				}
+				return myXhr;
+			},
+			beforeSend: function(){},
+			success: function(res){
+				if(res[0] == 'E'){
+					if(res=='Eexist'){
+						alert('已存在同檔名的檔案，請換一個檔名');
+					}
+				}else{
+					alert('上傳成功');
+				}
+			},
+			error: function(){alert('error');},
+			data: formdata,
+			cache: false,
+			contentType: false,
+			processData: false
+		});	
+	});
+	var progressbar = $('.basic.progress');
+	function progresshandler(e){
+		var Percent=100*e.loaded/e.total;
+		progressbar.progress({
+			label: false,
+			value: Percent,
+			text: {
+				active: '{percent}% Complete',
+				success: 'Done!'
+			}
+		});
+	}
+	progressbar.progress({
+		label: false,
+		value: 0,
+		text: {
+			active: '{percent}% Complete',
+			success: 'Done!'
+		}
+	});
+});
+</script>
     <div class="ui centered grid" style="margin-top:75px">
         <div class="fourteen wide column">
+			{% if user.is_authenticated %}
+			<div class="ui segment">
+				<form id="add" class="ui form">
+					<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+					<input name="req" type="hidden" value="add">
+					<input name="uploader" type="hidden" value="{{ user.username }}">
+					<div class="field">
+						<label>資訊</label>
+						<textarea name='description' type="text" ></textarea>
+					</div>
+					<div class="field">
+						<label>分類</label>
+						<select class="ui dropdown" name='classification'>
+							<option value="" selected></option>
+							<option value="論文">論文</option>
+							<option value="文件">文件</option>
+						</select>
+					</div>
+					<div class="field">
+						<label>上傳檔案</label>
+						<input id="attach_file" name='attach_file' type="file">
+					</div>
+					<button type="button" class="ui submit orange button add">確認</button>
+				</form>
+				<div class="ui segment" id="progress">
+					<div class="ui basic progress">
+						<div class="bar">
+							<div class="progress"></div>
+						</div>
+						<div class="label">Uploading Files</div>
+					</div>
+				</div>
+			</div>
+			{% endif %}
             <div class="ui segment">
                 <a class="ui blue ribbon label">論文下載</a>
                 <table class="ui celled striped table">

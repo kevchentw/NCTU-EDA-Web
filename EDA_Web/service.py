@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from news.models import NewsModel
+from downloads.models import DownloadsModel
+from django.core.exceptions import ObjectDoesNotExist
+from django.conf import settings
 
 class Service:
     pass
@@ -64,3 +67,27 @@ class NewsService:
         n.save()
         return (None, nid)
 
+def log(s):
+    f=open('log','a+')
+    f.write(str(s)+'\n')
+    f.close()
+
+
+class DownloadsService:
+    def __init__(self):
+        self.downloadsdb = DownloadsModel.objects
+
+    def add_downloads(self, filename, description, classification, uploader, attach_file):
+        try:
+            self.downloadsdb.get(filename__exact=filename)
+            return ('Eexist', None)
+        except ObjectDoesNotExist:
+            pass
+
+        d = self.downloadsdb.create(filename=filename, description=description, classification=classification, uploader=uploader)
+        path = settings.DOCUMENT_ROOT + '/' + filename
+        f = open(path, 'wb+')
+        for chunk in attach_file.chunks():
+            f.write(chunk)
+        f.close()
+        return (None, d.did)

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class DownloadsModel(models.Model):
@@ -15,6 +16,6 @@ class DownloadsModel(models.Model):
         return str(self.did)
 
     def save(self, *args, **kwargs):
-        if self.nid:
+        if self.did:
             self.modified = True
         return super(DownloadsModel, self).save(*args, **kwargs)

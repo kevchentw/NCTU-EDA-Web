@@ -92,12 +92,25 @@ def about(request):
     elif request.method == 'POST':
         return response('')
 
-
 def downloads(request):
     if request.method == 'GET':
         return render(request, "downloads.html")
     elif request.method == 'POST':
-        return response('')
+        req = request.POST.get('req','')
+        if req == 'add':
+            description = request.POST.get('description', '')
+            classification = request.POST.get('classification','')
+            uploader = request.POST.get('uploader', '')
+            filename = str(request.FILES['attach_file'])
+            err, did = Service.Downloads.add_downloads(filename, description, classification, uploader, request.FILES['attach_file'])
+            if err:
+                return response(err)
+            return response(str(did))
+        elif req == 'del':
+            pass
+        elif req == 'mod':
+            pass
+        return response('undefined')
 
 
 def achievement(request):
