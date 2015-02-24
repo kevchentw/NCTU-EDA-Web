@@ -10,7 +10,7 @@ from EDA_Web.service import Service
 
 def log(s):
     f = open('log', 'a')
-    f.write(str(s))
+    f.write(str(s)+'\n')
     f.close()
     return
 
