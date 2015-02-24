@@ -112,12 +112,10 @@ def downloads(request):
             return response(str(did))
         elif req == 'del':
             did = request.POST.get('did','-1')
-            try:
-                DownloadsModels.objects.get(did__exact=did).delete()
-                return response(str(did))
-            except ObjectDoesNotExist:
-                return response('Enoexist')
-            pass
+            err, did = Service.Downloads.del_downloads(did)
+            if err:
+                return response(err)
+            return response(str(did))
         elif req == 'mod':
             pass
         return response('undefined')

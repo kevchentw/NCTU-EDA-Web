@@ -34,6 +34,7 @@ $(document).ready(function(){
 					}
 				}else{
 					alert('上傳成功');
+					location.reload();
 				}
 			},
 			error: function(){alert('error');},
@@ -62,6 +63,22 @@ $(document).ready(function(){
 			active: '{percent}% Complete',
 			success: 'Done!'
 		}
+	});
+	$('div.del').click(function(){
+		var did = $(this).find('input').val();
+		$.post('/downloads/',{
+			'req': 'del',
+			'did': did,
+			'csrfmiddlewaretoken': '{{ csrf_token }}',
+		},function(res){
+			alert(res);
+			if(res[0] == 'E'){
+				alert(res);
+			}else{
+				alert('刪除成功');
+				location.reload();
+			}
+		});
 	});
 });
 </script>
@@ -110,6 +127,9 @@ $(document).ready(function(){
                         	<th>資訊</th>
                         	<th>上傳者</th>
                         	<th>上傳日期</th>
+							{% if user.is_authenticated %}
+							<th></th>
+							{% endif %}
                     	</tr>
 					</thead>
 					<tbody>
@@ -121,6 +141,17 @@ $(document).ready(function(){
 							<td>{{ download.description }}</td>
 							<td>{{ download.uploader }}</td>
 							<td class="right aligned collapsing">{{ download.created_time.year }}/{{ download.created_time.month }}/{{ download.created_time.day }}</td>
+							{% if user.is_authenticated %}
+							<td>
+								<div class="ui right floated green button">
+									<i class="edit icon"></i>修改
+								</div>
+								<div class="ui right floated red button del">
+									<i class="delete icon"></i>刪除
+									<input type="hidden" value="{{ download.did }}"></input>
+								</div>
+							</td>
+							{% endif %}
 						</tr>
 						{% endfor %}
                 	</tbody>
@@ -136,6 +167,9 @@ $(document).ready(function(){
 							<th>資訊</th>
 							<th>上傳者</th>
 							<th>上傳日期</th>
+							{% if user.is_authenticated %}
+							<th></th>
+							{% endif %}
 						</tr>
 					</thead>
 					<tbody>
@@ -147,6 +181,17 @@ $(document).ready(function(){
 							<td>{{ download.description }}</td>
 							<td>{{ download.uploader }}</td>
 							<td class="right aligned collapsing">{{ download.created_time.year }}/{{ download.created_time.month }}/{{ download.created_time.day }}</td>
+							{% if user.is_authenticated %}
+							<td>
+								<div class="ui right floated green button">
+									<i class="edit icon"></i>修改
+								</div>
+								<div class="ui right floated red button del">
+									<i class="delete icon"></i>刪除
+									<input type="hidden" value="{{ download.did }}"></input>
+								</div>
+							</td>
+							{% endif %}
 						</tr>
 						{% endfor %}
                 	</tbody>

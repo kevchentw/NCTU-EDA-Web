@@ -3,6 +3,7 @@ from news.models import NewsModel
 from downloads.models import DownloadsModel
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
+import os
 
 class Service:
     pass
@@ -91,3 +92,17 @@ class DownloadsService:
             f.write(chunk)
         f.close()
         return (None, d.did)
+
+    def del_downloads(self, did):
+        log(did)
+        try:
+            d = self.downloadsdb.get(did__exact=did)
+            log(d)
+            path = settings.DOCUMENT_ROOT + '/' + d.filename
+            log(path)
+            os.remove(path)
+            log('remove')
+            d.delete()
+            return (None, did)
+        except ObjectDoesNotExist:
+            return ('Enoexist', None)
