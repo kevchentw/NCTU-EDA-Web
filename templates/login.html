@@ -15,8 +15,6 @@
 						password = $(this).val();
 					}
 				});
-				alert(username+password);
-				alert($('input.username').val());
                 $.post('/login/', {
                     'username': username,
                     'password': password,
