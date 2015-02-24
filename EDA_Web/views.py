@@ -129,7 +129,17 @@ def downloads(request):
                 return response(err)
             return response(str(did))
         elif req == 'mod':
-            pass
+            did = request.POST.get('did', '-1')
+            description = request.POST.get('description', '')
+            uploader = request.POST.get('uploader', '')
+            classification = request.POST.get('classification', '')
+            log('into')
+            log(description)
+            err, did = Service.Downloads.mod_downloads(did, description, uploader, classification, 
+                    request.FILES.get('attach_file')) 
+            if err:
+                return response(err)
+            return response(str(did))
         return response('undefined')
 
 

@@ -109,3 +109,28 @@ class DownloadsService:
             return (None, did)
         except ObjectDoesNotExist:
             return ('Enoexist', None)
+
+    def mod_downloads(self, did, description, uploader, classification, attach_file):
+        try:
+            d = self.downloadsdb.get(did__exact=did)
+        except ObjectDoesNotExist:
+            return ('Enoexist', None)
+        log(description)
+        d.description = description
+        d.uploader = uploader
+        d.classification = classification
+        d.save()
+        if attach_file:
+            path = settings.DOCUMENT_ROOT + '/' + d.filename
+            os.remove(path)
+            filename = str(attach_file)
+            d.filename = filename
+            d.save()
+            path = settings.DOCUMENT_ROOT + '/' + filename
+            log('save')
+            log(type(attach_file))
+            f = open(path, 'wb+')
+            for chunk in attach_file.chunks():
+                f.write(chunk)
+            f.close()
+        return (None, did)

@@ -1,4 +1,5 @@
 .*.sw[po]
+log
 .idea
 __pycache__/
 *.py[cod]

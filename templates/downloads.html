@@ -82,20 +82,56 @@ $(document).ready(function(){
 	});
 	$('button.mod').click(function(){
 		var file = document.getElementById('attach_file').files[0];
-		var description = $('input[name=description]').val();
+		var description = $('textarea[name=description]').val();
 		var classification = $('select[name=classification]').val();
 		var uploader = $('input[name=uploader]').val();
 		if(typeof(file) == 'undefined'){
 			$.post('/downloads/',{
+				'did': {{ modify.did }},
 				'req': 'mod',
 				'description': description,
 				'classification': classification,
 				'uploader': uploader,
 				'csrfmiddlewaretoken': '{{ csrf_token }}',
 			},function(res){
-				alert(res);
+				if(res[0] == 'E'){
+					alert(res);
+				}else{
+					alert('修改成功');
+					location.reload();
+				}
 			});
 		}else{
+			$('#progress').show();
+			var formdata = new FormData($('form')[0]);
+			$.ajax({
+				url: '/downloads/',
+				type: 'POST',
+				xhr: function() {
+					var myXhr = $.ajaxSettings.xhr();
+					if(myXhr.upload){
+						myXhr.upload.addEventListener('progress', progresshandler, false);
+					}
+					return myXhr;
+				},
+				beforeSend: function(){},
+				success: function(res){
+					if(res[0] == 'E'){
+						if(res == 'Eexist'){
+							alert('已存在同檔名的檔案，請換一個檔名');
+						}
+					}else{
+						alert('上傳成功');
+						location.reload();
+					}
+				},
+				error: function(){alert('error');},
+				data: formdata,
+				cache: false,
+				contentType: false,
+				processData: false
+			});	
+			
 		}
 	});
 });
@@ -107,6 +143,7 @@ $(document).ready(function(){
 			<div class="ui segment">
 				<form id="mod" class="ui form">
 					<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+					<input type="hidden" name="did" value="{{ modify.did }}">
 					<input name="req" type="hidden" value="mod">
 					<div class="field">
 						<label>上傳者</label>
@@ -114,7 +151,7 @@ $(document).ready(function(){
 					</div>
 					<div class="field">
 						<label>資訊</label>
-						<textarea name='description' type="text" value="{{ modify.description }}"></textarea>
+						<textarea name='description' type="text">{{ modify.description }}</textarea>
 					</div>
 					<div class="field">
 						<label>分類</label>
