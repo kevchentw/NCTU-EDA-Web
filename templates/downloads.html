@@ -80,11 +80,71 @@ $(document).ready(function(){
 			}
 		});
 	});
+	$('button.mod').click(function(){
+		var file = document.getElementById('attach_file').files[0];
+		var description = $('input[name=description]').val();
+		var classification = $('select[name=classification]').val();
+		var uploader = $('input[name=uploader]').val();
+		if(typeof(file) == 'undefined'){
+			$.post('/downloads/',{
+				'req': 'mod',
+				'description': description,
+				'classification': classification,
+				'uploader': uploader,
+				'csrfmiddlewaretoken': '{{ csrf_token }}',
+			},function(res){
+				alert(res);
+			});
+		}else{
+		}
+	});
 });
+
 </script>
     <div class="ui centered grid" style="margin-top:75px">
         <div class="fourteen wide column">
-			{% if user.is_authenticated %}
+			{% if user.is_authenticated and modify %}
+			<div class="ui segment">
+				<form id="mod" class="ui form">
+					<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+					<input name="req" type="hidden" value="mod">
+					<div class="field">
+						<label>上傳者</label>
+						<input name="uploader" type="text" value="{{ modify.uploader }}">
+					</div>
+					<div class="field">
+						<label>資訊</label>
+						<textarea name='description' type="text" value="{{ modify.description }}"></textarea>
+					</div>
+					<div class="field">
+						<label>分類</label>
+						<select class="ui dropdown" name='classification'>
+							<option value="{{ modify.classification }}" selected>分類</option>
+							<option value="論文">論文</option>
+							<option value="文件">文件</option>
+						</select>
+					</div>
+					<div class="field">
+						<label>目前檔案</label>
+						<input type="text" name="oldfilename" value="{{ modify.filename }}" readonly>
+					</div>
+					<div class="field">
+						<label>上傳檔案(不改變檔案則不需選擇)</label>
+						<input id="attach_file" name='attach_file' type="file">
+					</div>
+					<button type="button" class="ui submit orange button mod">確認</button>
+				</form>
+				<div class="ui segment" id="progress">
+					<div class="ui basic progress">
+						<div class="bar">
+							<div class="progress"></div>
+						</div>
+						<div class="label">Uploading Files</div>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+			{% if user.is_authenticated and modify == None %}
 			<div class="ui segment">
 				<form id="add" class="ui form">
 					<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">

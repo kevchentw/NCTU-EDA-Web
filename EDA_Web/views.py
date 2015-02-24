@@ -99,9 +99,16 @@ def about(request):
 
 def downloads(request):
     if request.method == 'GET':
+        did = request.GET.get('did', '-1')
         d = {}
         d['downloads0'] = DownloadsModel.objects.filter(classification__exact='論文').order_by('-created_time')
         d['downloads1'] = DownloadsModel.objects.filter(classification__exact='文件').order_by('-created_time')
+        try:
+            d['modify'] = DownloadsModel.objects.get(did__exact=did)
+        except ObjectDoesNotExist:
+            d['modify'] = None
+        log(d['modify'])
+        log(did)
         return render(request, "downloads.html", d)
     elif request.method == 'POST':
         req = request.POST.get('req', '')
