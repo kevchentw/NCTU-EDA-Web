@@ -6,11 +6,14 @@ from django.core.exceptions import ObjectDoesNotExist
 from news.models import NewsModel
 from downloads.models import DownloadsModel
 from EDA_Web.service import Service
+
+
 def log(s):
-    f = open('log','a')
+    f = open('log', 'a')
     f.write(str(s))
     f.close()
     return
+
 
 def home(request):
     if request.method == 'GET':
@@ -53,7 +56,7 @@ def news(request):
                 return response('noexist')
             return response('S')
         elif req == 'mod':
-            nid  = request.POST.get('nid','-1')
+            nid = request.POST.get('nid', '-1')
             err, nid = Service.News.mod_news(nid, title, top, content, author, classification)
             if err:
                 return response(err)
@@ -93,6 +96,7 @@ def about(request):
     elif request.method == 'POST':
         return response('')
 
+
 def downloads(request):
     if request.method == 'GET':
         d = {}
@@ -100,18 +104,19 @@ def downloads(request):
         d['downloads1'] = DownloadsModel.objects.filter(classification__exact='文件').order_by('-created_time')
         return render(request, "downloads.html", d)
     elif request.method == 'POST':
-        req = request.POST.get('req','')
+        req = request.POST.get('req', '')
         if req == 'add':
             description = request.POST.get('description', '')
             classification = request.POST.get('classification', '')
             uploader = request.POST.get('uploader', '')
             filename = str(request.FILES['attach_file'])
-            err, did = Service.Downloads.add_downloads(filename, description, classification, uploader, request.FILES['attach_file'])
+            err, did = Service.Downloads.add_downloads(filename, description, classification, uploader,
+                                                       request.FILES['attach_file'])
             if err:
                 return response(err)
             return response(str(did))
         elif req == 'del':
-            did = request.POST.get('did','-1')
+            did = request.POST.get('did', '-1')
             try:
                 DownloadsModels.objects.get(did__exact=did).delete()
                 return response(str(did))
@@ -184,6 +189,7 @@ def ylli_research(request):
         return render(request, "ylli_research.html")
     elif request.method == 'POST':
         return response('')
+
 
 def login(request):
     if request.method == 'GET':
