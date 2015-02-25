@@ -11,7 +11,7 @@ http://www.opensource.org/licenses/mit-license.php
 http://www.gnu.org/licenses/gpl.html
 */
 
-(function( $ ){
+$(document).ready(function(){
 	var $window = $(window);
 	var windowHeight = $window.height();
 
@@ -66,4 +66,4 @@ http://www.gnu.org/licenses/gpl.html
 		$window.bind('scroll', update).resize(update);
 		update();
 	};
-})(jQuery);
+});
