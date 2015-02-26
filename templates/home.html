@@ -1,66 +1,81 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="ui centered grid" style="margin-top:75px">
-        <div class="fourteen wide column">
-			<script type="text/javascript" src="../html/Data/jquery.parallax-1.1.3.js"></script>
-			<script type="text/javascript" src="../html/Data/jquery.localscroll-1.2.7-min.js"></script>
-			<script type="text/javascript" src="../html/Data/jquery.scrollTo-1.4.2-min.js"></script>
-			<script type="text/javascript">
-			$(document).ready(function(){
-				//.parallax(xPosition, speedFactor, outerHeight) options:
-				//xPosition - Horizontal position of the element
-				//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
-				//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-				$('#intro').parallax("50%", 0.1);
-				$('#eda').parallax("50%", 0.1);
-				$('#great').parallax("50%", 0.4);
-				$('#idea').parallax("50%", 0.3);
-			});
-			</script>
-			<div class="ui centered grid" style="margin-top:75px">
-				<div id="intro">
-					intro
-				</div>
-				<div id="eda">
-					eda
-				</div>
-				<div id="great">
-					great
-				</div>
-				<div id="idea">
-					idea
+    <script type="text/javascript" src="../html/Data/jquery.parallax-1.1.3.js"></script>
+	<script type="text/javascript" src="../html/Data/jquery.localscroll-1.2.7-min.js"></script>
+	<script type="text/javascript" src="../html/Data/jquery.scrollTo-1.4.2-min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//.parallax(xPosition, speedFactor, outerHeight) options:
+		//xPosition - Horizontal position of the element
+		//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+		//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+		$('#intro').parallax("50%", 0.1);
+		$('#eda').parallax("50%", 0.1);
+		$('#great').parallax("50%", 0.4);
+		$('#idea').parallax("50%", 0.3);
+	});
+	</script>
+	<div class="ui centered grid" style="margin-top:50px">
+		<div class=""id="intro" style>
+			<div class="ui grid">
+				<div class="row">
+					<div class="two wide column">
+						
+					</div>
+					<div class="twelve wide column">
+						<br><br><br>
+						<h1 style="color:purple;font-size:800%"><font color=blue>EDA</font>, a <font color=green>great</font> <font color=orange>idea</font>!</h1>
+					</div>
+					<div class="two wide column">
+						
+					</div>
 				</div>
 			</div>
-			<style type="text/css">
-				#intro{
-					background:url(../html/Data/home01.jpg) 50% 0 no-repeat fixed;
-					color: white;
-					height: 600px;
-					margin: 0 auto;
-					padding: 0;
-				}
-				#eda{
-					background:url(../html/Data/home02.jpg) 50% 0 no-repeat fixed;
-					color: white;
-					height: 600px;
-					margin: 0 auto;
-					padding: 0;
-				}
-				#great{
-					background:url(../html/Data/home03.jpg) 50% 0 no-repeat fixed;
-					color: white;
-					height: 600px;
-					margin: 0 auto;
-					padding: 0;
-				}
-				#idea{
-					background:url(../html/Data/home04.jpg) 50% 0 no-repeat fixed;
-					color: white;
-					height: 600px;
-					margin: 0 auto;
-					padding: 0;
-				}
-			</style>
+		</div>
+		<div id="eda">
+			
+		</div>
+		<div id="great">
+			
+		</div>
+		<div id="idea">
+			
+		</div>
+	</div>
+	<style type="text/css">
+		#intro{
+			background:url(../html/Data/home01.jpg) 50% 0 no-repeat fixed;
+			color: white;
+			height: 600px;
+			margin: 0 auto;
+			padding: 0;
+			background-size: 100%;
+		}
+		#eda{
+			background:url(../html/Data/home02.jpg) 50% 0 no-repeat fixed;
+			color: white;
+			height: 600px;
+			margin: 0 auto;
+			padding: 0;
+			background-size: 100%;
+		}
+		#great{
+			background:url(../html/Data/home03.jpg) 50% 0 no-repeat fixed;
+			color: white;
+			height: 600px;
+			margin: 0 auto;
+			padding: 0;
+			background-size: 100%;
+		}
+		#idea{
+			background:url(../html/Data/home04.jpg) 50% 0 no-repeat fixed;
+			color: white;
+			height: 600px;
+			margin: 0 auto;
+			padding: 0;
+			background-size: 100%;
+		}
+	</style>
 			<br>
 			<section id="home_new">
 				<h5 class="ui block header">
