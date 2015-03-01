@@ -57,7 +57,6 @@
 		</div>
 		<div id="news">
 			<div class="ui grid">
-				<br><br><br>
 				<div class="centered row">
 					<div class="two wide column"></div>
 					<div class="twelve wide column">
@@ -69,7 +68,7 @@
 								<!--頂置item start-->
 								{% for news in news_list_1 %}
 								<div class="item">
-									<div class="ui vertical segment">
+									<div class="ui segment">
 										<i class="announcement icon"></i>
 										<div class="ui blue horizontal label">置頂</div>
 										<div class="ui green horizontal label">{{ news.classification }}</div>
@@ -81,7 +80,7 @@
 								<!--公告item start-->
 								{% for news in news_list_0 %}
 								<div class="item">
-									<div class="ui vertical segment">
+									<div class="ui segment">
 										<i class="announcement icon"></i>
 										<div class="ui green horizontal label">{{ news.classification }}</div>
 										<b>{{ news.title }}</b>
