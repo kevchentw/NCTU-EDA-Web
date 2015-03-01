@@ -10,9 +10,10 @@
 		//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
 		//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
 		$('#intro').parallax("50%", 0.1);
-		$('#eda').parallax("50%", 0.1);
-		$('#great').parallax("50%", 0.4);
-		$('#idea').parallax("50%", 0.3);
+		$('#eda').parallax("50%", 0.2);
+		$('#great').parallax("50%", 0.2);
+		$('#idea').parallax("50%", 0.2);
+		$('#news').parallax("50%", 0.2);
 	});
 	</script>
 	<div class="ui centered grid" style="margin-top:50px">
@@ -40,6 +41,7 @@
 							<i class="down arrow icon"></i>
 						  </div>
 						</div>
+						<li><a href="#eda" title="Next Section"><img src="../html/Data/dot.png" alt="Link" /></a></li>
 					</div>
 					<div class="two wide column"></div>
 					
@@ -54,6 +56,49 @@
 		</div>
 		<div id="idea">
 			
+		</div>
+		<div id="news">
+			<div class="ui grid">
+				<br><br><br>
+				<div class="centered row">
+					<div class="two wide column"></div>
+					<div class="twelve wide column">
+						<h5 class="ui block header">
+							最新消息
+						</h5>
+						<div class="ui segment">
+							<div class="twelve wide column">
+								<div class="ui animated list">
+									<!--頂置item start-->
+									{% for news in news_list_1 %}
+									<div class="item">
+										<div class="ui vertcal segment">
+											<i class="announcement icon"></i>
+											<div class="ui blue horizontal label">置頂</div>
+											<div class="ui green horizontal label">{{ news.classification }}</div>
+											<b>{{ news.title }}</b>
+										</div>
+									</div>
+									{% endfor %}
+									<!--頂置item end-->
+									<!--公告item start-->
+									{% for news in news_list_0 %}
+									<div class="item">
+										<div class="ui vertcal segment">
+											<i class="announcement icon"></i>
+											<div class="ui green horizontal label">{{ news.classification }}</div>
+											<b>{{ news.title }}</b>
+										</div>
+									</div>
+									{% endfor %}
+									<!--公告item end-->
+								</div>
+							</div>
+						</div>
+					<div>
+					<div class="two wide column"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<style type="text/css">
@@ -89,70 +134,13 @@
 			padding: 0;
 			background-size: 100%;
 		}
+		#news{
+			background:url(../html/Data/home05.jpg) 50% 0 no-repeat fixed;
+			color: white;
+			height: 600px;
+			margin: 0 auto;
+			padding: 0;
+			background-size: 100%;
+		}
 	</style>
-			<br>
-			<section id="home_new">
-				<h5 class="ui block header">
-					最新消息
-				</h5>
-				<div class="ui segment">
-					<div class="ui animated list">
-						<!--頂置item start-->
-                        {% for news in news_list_1 %}
-						<div class="item">
-							<div class="ui vertcal segment">
-								<i class="announcement icon"></i>
-                                <div class="ui blue horizontal label">置頂</div>
-                                <div class="ui green horizontal label">{{ news.classification }}</div>
-                                <b>{{ news.title }}</b>
-							</div>
-						</div>
-                        {% endfor %}
-						<!--頂置item end-->
-						<!--公告item start-->
-                        {% for news in news_list_0 %}
-						<div class="item">
-							<div class="ui vertcal segment">
-                                <i class="announcement icon"></i>
-                                <div class="ui green horizontal label">{{ news.classification }}</div>
-                                <b>{{ news.title }}</b>
-							</div>
-						</div>
-                        {% endfor %}
-						<!--公告item end-->
-					</div>
-				</div>
-			</section>
-			<br>
-			<section id="home_eda">
-				<h5 class="ui block header">
-					EDA 簡介
-				</h5>
-				<div class="ui segment">
-					<!--short intro of eda-->
-				</div>
-			</section>
-			<br>
-			<section id="home_lab">
-				<h5 class="ui block header">
-					實驗室介紹
-				</h5>
-				<div class="ui segment">
-					<!--short intro of lab-->
-				</div>
-			</section>
-			<br>
-			<section id="home_pro">
-				<h5 class="ui block header">
-					教授介紹
-				</h5>
-				<div class="ui segment">
-					<!--short intro of professor-->
-				</div>
-			</section>
-		</div>
-	</div>
-	<footer>
-		
-	</footer>
 {% endblock %}
