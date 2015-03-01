@@ -41,10 +41,8 @@
 							<i class="down arrow icon"></i>
 						  </div>
 						</div>
-						<li><a href="#eda" title="Next Section"><img src="../html/Data/dot.png" alt="Link" /></a></li>
 					</div>
 					<div class="two wide column"></div>
-					
 				</div>
 			</div>
 		</div>
@@ -66,36 +64,34 @@
 						<h5 class="ui block header">
 							最新消息
 						</h5>
-						<div class="ui segment">
-							<div class="twelve wide column">
-								<div class="ui animated list">
-									<!--頂置item start-->
-									{% for news in news_list_1 %}
-									<div class="item">
-										<div class="ui vertcal segment">
-											<i class="announcement icon"></i>
-											<div class="ui blue horizontal label">置頂</div>
-											<div class="ui green horizontal label">{{ news.classification }}</div>
-											<b>{{ news.title }}</b>
-										</div>
+						<div class="twelve wide column">
+							<div class="ui animated list">
+								<!--頂置item start-->
+								{% for news in news_list_1 %}
+								<div class="item">
+									<div class="ui vertical segment">
+										<i class="announcement icon"></i>
+										<div class="ui blue horizontal label">置頂</div>
+										<div class="ui green horizontal label">{{ news.classification }}</div>
+										<b>{{ news.title }}</b>
 									</div>
-									{% endfor %}
-									<!--頂置item end-->
-									<!--公告item start-->
-									{% for news in news_list_0 %}
-									<div class="item">
-										<div class="ui vertcal segment">
-											<i class="announcement icon"></i>
-											<div class="ui green horizontal label">{{ news.classification }}</div>
-											<b>{{ news.title }}</b>
-										</div>
-									</div>
-									{% endfor %}
-									<!--公告item end-->
 								</div>
+								{% endfor %}
+								<!--頂置item end-->
+								<!--公告item start-->
+								{% for news in news_list_0 %}
+								<div class="item">
+									<div class="ui vertical segment">
+										<i class="announcement icon"></i>
+										<div class="ui green horizontal label">{{ news.classification }}</div>
+										<b>{{ news.title }}</b>
+									</div>
+								</div>
+								{% endfor %}
+								<!--公告item end-->
 							</div>
 						</div>
-					<div>
+					</div>
 					<div class="two wide column"></div>
 				</div>
 			</div>
