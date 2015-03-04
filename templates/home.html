@@ -1,180 +1,476 @@
 {% extends "base.html" %}
 {% block content %}
-	<script type="text/javascript" src="../html/Data/jquery.parallax-1.1.3.js"></script>
-	<script type="text/javascript" src="../html/Data/jquery.localscroll-1.2.7-min.js"></script>
-	<script type="text/javascript" src="../html/Data/jquery.scrollTo-1.4.2-min.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		//.parallax(xPosition, speedFactor, outerHeight) options:
-		//xPosition - Horizontal position of the element
-		//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
-		//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-		$('#intro').parallax("50%", 0.1);
-		$('#eda').parallax("50%", 0.2);
-		$('#great').parallax("50%", 0.2);
-		$('#idea').parallax("50%", 0.2);
-		$('#move').localScroll(800);
-	});
-	</script>
-	<div class="ui centered grid" style="margin-top:50px">
-		<div id="intro">
-			<div class="ui grid">
-				<div class="centered row">
-					<div class="two wide column"></div>
-					<div class="twelve wide column">
-						<br><br><br>
-						<img src="../html/Data/homeword.gif">
-					</div>
-					<div class="two wide column"></div>
+<script type="text/javascript" src="../html/Data/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="../html/Data/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="../html/Data/jquery.scrollTo-1.4.2-min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//.parallax(xPosition, speedFactor, outerHeight) options:
+	//xPosition - Horizontal position of the element
+	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+	//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+	$('#intro').parallax("50%", 0.1);
+	$('#eda').parallax("50%", 0.2);
+	$('#great').parallax("50%", 0.2);
+	$('#idea').parallax("50%", 0.2);
+	$('#move').localScroll(800);
+	$('#tintro').parallax("50%", 0.1);
+	$('#teda').parallax("50%", 0.2);
+	$('#tgreat').parallax("50%", 0.2);
+	$('#tidea').parallax("50%", 0.2);
+	$('#tmove').localScroll(800);
+});
+</script>
+<div class="ui computer only center aligned grid" style="margin-top:50px">
+	<div id="intro">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword.gif">
 				</div>
-				<div class="center aligned row">
-					<div class="two wide column"></div>
-					<div class="twelve wide column">
-						<div class="orange small circular ui icon button"></div><br><br>
-						<div class="green big circular ui icon button"></div><br><br>
-						<div class="blue maasive circular ui icon button">
-							<i class="blue circle icon"></i>
-						</div><br><br>
-						<a id="move" class="ui grey massive vertical animated button" href="#eda">
-							<div class="visible content">Find  Out  Why !</div>
-							<div class="hidden content">
-								<i class="down arrow icon"></i>
-							</div>
-						</a>
-					</div>
-					<div class="two wide column"></div>
-				</div>
+				<div class="two wide column"></div>
 			</div>
-		</div>
-		<div id="eda">
-			<div class="ui grid">
-				<div class="center aligned row">
-					<div class="one wide column"></div>
-					<div class="ten wide column">
-						<br><br><br>
-						<img src="../html/Data/homeword01.gif">
-						<h1>The EDA LAB</h1>
-						<b>Short description about EDA Lab</b>
-					</div>
-					<div class="four wide column">
-						<br><br><br>
-						<img class="ui circular image" src="../html/Data/ylli.jpg">
-						<br>
-						<div class="ui massive teal label">
-							李毅郎 Yih-Lang Li 教授
+			<div class="center aligned row">
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<div class="orange small circular ui icon button"></div><br><br>
+					<div class="green big circular ui icon button"></div><br><br>
+					<div class="blue maasive circular ui icon button">
+						<i class="blue circle icon"></i>
+					</div><br><br>
+					<a id="move" class="ui grey massive vertical animated button" href="#eda">
+						<div class="visible content">Find  Out  Why !</div>
+						<div class="hidden content">
+							<i class="down arrow icon"></i>
 						</div>
-					</div>
-					<div class="one wide column"></div>
+					</a>
 				</div>
-				<div class="center aligned row">
-					<div class="fourteen column">
-						<a id="move" class="ui grey massive vertical animated button" href="#great">
-							<div class="visible content">Why Great ?</div>
-							<div class="hidden content">
-								<i class="down arrow icon"></i>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="great">
-			<div class="ui grid">
-				<div class="center aligned row">
-					<div class="one wide column"></div>
-					<div class="four wide column">
-						<br><br><br>
-						<img class="ui circular image" src="../html/Data/kcw.jpg">
-						<br>
-						<div class="ui massive teal label">
-							吳凱強 Kai-Chiang Wu 助理教授
-						</div>
-					</div>
-					<div class="ten wide column">
-						<br><br><br>
-						<img src="../html/Data/homeword02.gif">
-						<h1>The GREAT LAB</h1>
-						<b>Short description about GREAT Lab</b>
-					</div>
-					<div class="one wide column"></div>
-				</div>
-				<div class="center aligned row">
-					<div class="fourteen column">
-						<a id="move" class="ui grey massive vertical animated button" href="#idea">
-							<div class="visible content">Get the IDEA !</div>
-							<div class="hidden content">
-								<i class="down arrow icon"></i>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="idea">
-			<div class="ui grid">
-				<div class="center aligned row">
-					<div class="one wide column"></div>
-					<div class="ten wide column">
-						<br><br><br>
-						<img src="../html/Data/homeword03.gif">
-						<h1>The IDEA LAB</h1>
-						<b>Short description about IDEA Lab</b>
-					</div>
-					<div class="four wide column">
-						<br><br><br>
-						<img class="ui circular image" src="../html/Data/tyho.jpg">
-						<br>
-						<div class="ui massive teal label">
-							何宗易 Tsung-Yi Ho 教授
-						</div>
-					</div>
-					<div class="one wide column"></div>
-				</div>
-				<div class="center aligned row">
-					<div class="fourteen column">
-						<a id="move" class="ui grey massive vertical animated button" href="/news/">
-							<div class="visible content">最 新 消 息</div>
-							<div class="hidden content">
-								<i class="send outline icon"></i>
-							</div>
-						</a>
-					</div>
-				</div>
+				<div class="two wide column"></div>
 			</div>
 		</div>
 	</div>
-	<style type="text/css">
-		#intro{
-			background:url(../html/Data/home01.jpg) 50% 0 no-repeat fixed;
-			color: black;
-			height: 600px;
-			margin: 0 auto;
-			padding: 0;
-			background-size: 100%;
-		}
-		#eda{
-			background:url(../html/Data/home02.jpg) 50% 0 no-repeat fixed;
-			color: black;
-			height: 600px;
-			margin: 0 auto;
-			padding: 0;
-			background-size: 100%;
-		}
-		#great{
-			background:url(../html/Data/home03.jpg) 50% 0 no-repeat fixed;
-			color: black;
-			height: 600px;
-			margin: 0 auto;
-			padding: 0;
-			background-size: 100%;
-		}
-		#idea{
-			background:url(../html/Data/home04.jpg) 50% 0 no-repeat fixed;
-			color: black;
-			height: 600px;
-			margin: 0 auto;
-			padding: 0;
-			background-size: 100%;
-		}
-	</style>
+	<div id="eda">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="one wide column"></div>
+				<div class="ten wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword01.gif">
+					<h1>The EDA LAB</h1>
+					<b>Short description about EDA Lab</b>
+					<br><br>
+					<a id="move" class="ui grey massive vertical animated button" href="#great">
+						<div class="visible content">Why Great ?</div>
+						<div class="hidden content">
+							<i class="down arrow icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="four wide column">
+					<br><br><br>
+					<img class="ui circular image" src="../html/Data/ylli.jpg">
+					<br>
+					<div class="ui massive teal label">
+						李毅郎 教授<br><br>Yih-Lang Li
+					</div>
+				</div>
+				<div class="one wide column"></div>
+			</div>
+		</div>
+	</div>
+	<div id="great">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="one wide column"></div>
+				<div class="four wide column">
+					<br><br><br>
+					<img class="ui circular image" src="../html/Data/kcw.jpg">
+					<br>
+					<div class="ui massive teal label">
+						吳凱強 助理教授<br><br>Kai-Chiang Wu
+					</div>
+				</div>
+				<div class="ten wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword02.gif">
+					<h1>The GREAT LAB</h1>
+					<b>Short description about GREAT Lab</b>
+					<br><br>
+					<a id="move" class="ui grey massive vertical animated button" href="#idea">
+						<div class="visible content">Get the IDEA !</div>
+						<div class="hidden content">
+							<i class="down arrow icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="one wide column"></div>
+			</div>
+		</div>
+	</div>
+	<div id="idea">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="one wide column"></div>
+				<div class="ten wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword03.gif">
+					<h1>The IDEA LAB</h1>
+					<b>Short description about IDEA Lab</b>
+					<br><br>
+					<a id="move" class="ui grey massive vertical animated button" href="/news/">
+						<div class="visible content">最 新 消 息</div>
+						<div class="hidden content">
+							<i class="send outline icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="four wide column">
+					<br><br><br>
+					<img class="ui circular image" src="../html/Data/tyho.jpg">
+					<br>
+					<div class="ui massive teal label">
+						何宗易 教授<br><br>Tsung-Yi Ho
+					</div>
+				</div>
+				<div class="one wide column"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="ui tablet only center aligned grid" style="margin-top:50px">
+	<div id="tintro">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword.gif">
+				</div>
+				<div class="two wide column"></div>
+			</div>
+			<div class="center aligned row">
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<div class="orange small circular ui icon button"></div><br><br>
+					<div class="green big circular ui icon button"></div><br><br>
+					<div class="blue maasive circular ui icon button">
+						<i class="blue circle icon"></i>
+					</div><br><br>
+					<a id="tmove" class="ui grey huge vertical animated button" href="#teda">
+						<div class="visible content">Find  Out  Why !</div>
+						<div class="hidden content">
+							<i class="down arrow icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="two wide column"></div>
+			</div>
+		</div>
+	</div>
+	<div id="teda">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="one wide column"></div>
+				<div class="ten wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword01.gif">
+					<h1>The EDA LAB</h1>
+					<b>Short description about EDA Lab</b>
+					<br><br>
+					<a id="tmove" class="ui grey huge vertical animated button" href="#tgreat">
+						<div class="visible content">Why Great ?</div>
+						<div class="hidden content">
+							<i class="down arrow icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="four wide column">
+					<br><br><br>
+					<img class="ui circular image" src="../html/Data/ylli.jpg">
+					<br>
+					<div class="ui huge teal label">
+						李毅郎 教授<br><br>Yih-Lang Li
+					</div>
+				</div>
+				<div class="one wide column"></div>
+			</div>
+		</div>
+	</div>
+	<div id="tgreat">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="one wide column"></div>
+				<div class="four wide column">
+					<br><br><br>
+					<img class="ui circular image" src="../html/Data/kcw.jpg">
+					<br>
+					<div class="ui huge teal label">
+						吳凱強 助理教授<br><br>Kai-Chiang Wu
+					</div>
+				</div>
+				<div class="ten wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword02.gif">
+					<h1>The GREAT LAB</h1>
+					<b>Short description about GREAT Lab</b>
+					<br><br>
+					<a id="tmove" class="ui grey huge vertical animated button" href="#tidea">
+						<div class="visible content">Get the IDEA !</div>
+						<div class="hidden content">
+							<i class="down arrow icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="one wide column"></div>
+			</div>
+		</div>
+	</div>
+	<div id="tidea">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="one wide column"></div>
+				<div class="ten wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword03.gif">
+					<h1>The IDEA LAB</h1>
+					<b>Short description about IDEA Lab</b>
+					<br><br>
+					<a id="tmove" class="ui grey huge vertical animated button" href="/news/">
+						<div class="visible content">最 新 消 息</div>
+						<div class="hidden content">
+							<i class="send outline icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="four wide column">
+					<br><br><br>
+					<img class="ui circular image" src="../html/Data/tyho.jpg">
+					<br>
+					<div class="ui huge teal label">
+						何宗易 教授<br><br>Tsung-Yi Ho
+					</div>
+				</div>
+				<div class="one wide column"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="ui mobile only center aligned grid" style="margin-top:50px">
+	<div id="mintro">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword.gif">
+				</div>
+				<div class="two wide column"></div>
+			</div>
+			<div class="center aligned row">
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<div class="orange small circular ui icon button"></div><br><br>
+					<div class="green big circular ui icon button"></div><br><br>
+					<div class="blue maasive circular ui icon button">
+						<i class="blue circle icon"></i>
+					</div><br><br>
+					<a id="mmove" class="ui grey huge vertical animated button" href="#meda">
+						<div class="visible content">Find  Out  Why !</div>
+						<div class="hidden content">
+							<i class="down arrow icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="two wide column"></div>
+			</div>
+		</div>
+	</div>
+	<div id="meda">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="one wide column"></div>
+				<div class="ten wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword01.gif">
+					<h1>The EDA LAB</h1>
+					<b>Short description about EDA Lab</b>
+					<br><br>
+					<a id="mmove" class="ui grey small vertical animated button" href="#mgreat">
+						<div class="visible content">Why Great ?</div>
+						<div class="hidden content">
+							<i class="down arrow icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="four wide column">
+					<br><br><br>
+					<img class="ui circular image" src="../html/Data/ylli.jpg">
+					<br>
+					<div class="ui small teal label">
+						李毅郎 教授<br><br>Yih-Lang Li
+					</div>
+				</div>
+				<div class="one wide column"></div>
+			</div>
+		</div>
+	</div>
+	<div id="mgreat">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="one wide column"></div>
+				<div class="four wide column">
+					<br><br><br>
+					<img class="ui circular image" src="../html/Data/kcw.jpg">
+					<br>
+					<div class="ui small teal label">
+						吳凱強 助理教授<br><br>Kai-Chiang Wu
+					</div>
+				</div>
+				<div class="ten wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword02.gif">
+					<h1>The GREAT LAB</h1>
+					<b>Short description about GREAT Lab</b>
+					<br><br>
+					<a id="mmove" class="ui grey small vertical animated button" href="#midea">
+						<div class="visible content">Get the IDEA !</div>
+						<div class="hidden content">
+							<i class="down arrow icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="one wide column"></div>
+			</div>
+		</div>
+	</div>
+	<div id="midea">
+		<div class="ui grid">
+			<div class="center aligned row">
+				<div class="one wide column"></div>
+				<div class="ten wide column">
+					<br><br><br>
+					<img src="../html/Data/homeword03.gif">
+					<h1>The IDEA LAB</h1>
+					<b>Short description about IDEA Lab</b>
+					<br><br>
+					<a id="mmove" class="ui grey small vertical animated button" href="/news/">
+						<div class="visible content">最 新 消 息</div>
+						<div class="hidden content">
+							<i class="send outline icon"></i>
+						</div>
+					</a>
+				</div>
+				<div class="four wide column">
+					<br><br><br>
+					<img class="ui circular image" src="../html/Data/tyho.jpg">
+					<br>
+					<div class="ui small teal label">
+						何宗易 教授<br><br>Tsung-Yi Ho
+					</div>
+				</div>
+				<div class="one wide column"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	#intro{
+		background:url(../html/Data/home01.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#eda{
+		background:url(../html/Data/home02.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#great{
+		background:url(../html/Data/home03.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#idea{
+		background:url(../html/Data/home04.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#tintro{
+		background:url(../html/Data/home01.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#teda{
+		background:url(../html/Data/home02.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#tgreat{
+		background:url(../html/Data/home03.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#tidea{
+		background:url(../html/Data/home04.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#mintro{
+		background:url(../html/Data/home01.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#meda{
+		background:url(../html/Data/home02.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#mgreat{
+		background:url(../html/Data/home03.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+	#midea{
+		background:url(../html/Data/home04.jpg) 50% 0 no-repeat fixed;
+		color: black;
+		height: 600px;
+		margin: 0 auto;
+		padding: 0;
+		background-size: 100%;
+	}
+</style>
 {% endblock %}

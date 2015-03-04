@@ -16,148 +16,170 @@
     <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.js"></script>
-
+    <style>
+        * {
+            margin: 0;
+        }
+        html, body {
+            height: 100%;
+        }
+        #wrapper {
+            min-height: 100%;
+            margin-bottom: -250px;
+        }
+        #wrapper:after {
+            content: "";
+            display: block;
+        }
+        #navbar{
+            background-color: #22C3AA; padding: 10px; width: 100%; z-index: 1001;position: fixed; top:0;
+        }
+        #footer, #wrapper:after {
+            height: 250px;
+        }
+    </style>
 </head>
 <body>
-<div style="background-color: #22C3AA; padding: 10px; width: 100%; z-index: 1001;position: fixed; top:0;">
-    <div class="ui inverted menu grid" style="background-color: #22C3AA">
-        <div class="mobile only row" style="padding:0;">
-            <a class="item" href="/"> EDA實驗室 </a>
-            <a class="item" href="/"> mobile </a>
+<div id="wrapper">
+    <div id="navbar">
+        <div class="ui inverted menu grid" style="background-color: #22C3AA">
+            <div class="mobile only row" style="padding:0;">
+                <a class="item" href="/"> EDA實驗室 </a>
+                <a class="item" href="/"> mobile </a>
 
-            <div class="right menu">
-                <div class="ui icon top right pointing dropdown button" style="background: #22C3AA">
-                    <i class="white content icon"></i>
-
-                    <div class="menu">
-                        <div class="header">EDA</div>
-                        <a class="item" href="/">首頁</a>
-                        <a class="item" href="/news/">最新消息</a>
-                        <a class="item" href="/feeds/">公告</a>
-                        <a class="item" href="/members/">成員</a>
-                        <a class="item" href="/about/">EDA 簡介</a>
-
-                        <div class="ui dropdown item">研究<i class="left dropdown icon"></i>
-
-                            <div class="left menu">
-                                <a href="/about/" class="item" style="text-align: right">研究簡介</a>
-
-                                <div class="header">研究領域</div>
-                                <a href="/ylli_research/" class="item">李毅郎</a>
-                                <a href="/tyho_research/" class="item">何宗易</a>
-                                <a href="/kcw_research/" class="item">吳凱強</a>
-                            </div>
-                        </div>
-                        <a class="item" href="/achievement/">研究成果</a>
-                        <a class="item" href="/activity/">活動</a>
-                        <a class="item" href="/downloads/">下載</a>
-
-                        <div class="ui divider"></div>
-                        <a class="item" href="/contact/">聯絡我們</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="tablet only row" style="padding:0;">
-            <a class="item" href="/"> EDA實驗室 </a>
-            <a class="item" href="/"> tablet </a>
-
-            <div class="right menu">
-                <div class="ui icon top right pointing dropdown button" style="background: #22C3AA">
-                    <i class="white content icon"></i>
-
-                    <div class="menu">
-                        <div class="header">EDA</div>
-                        <a class="item" href="/">首頁</a>
-                        <a class="item" href="/news/">最新消息</a>
-                        <a class="item" href="/feeds/">公告</a>
-                        <a class="item" href="/members/">成員</a>
-
-                        <div class="ui dropdown item">研究<i class="left dropdown icon"></i>
-
-                            <div class="left menu">
-                                <a href="/about/" class="item" style="text-align: right">研究簡介</a>
-
-                                <div class="header">研究領域</div>
-                                <a href="/ylli_research/" class="item">李毅郎</a>
-                                <a href="/tyho_research/" class="item">何宗易</a>
-                                <a href="/kcw_research/" class="item">吳凱強</a>
-                            </div>
-                        </div>
-                        <a class="item" href="/achievement/">研究成果</a>
-                        <a class="item" href="/activity/">活動</a>
-                        <a class="item" href="/downloads/">下載</a>
-
-                        <div class="ui divider"></div>
-                        <a class="item" href="/contact/">聯絡我們</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="computer only row" style="padding:0;">
-            <a class="item" href="/"> EDA實驗室 </a>
-            <a class="item" href="/">
-                <i class="home icon"></i> 首頁
-            </a>
-            <a class="item" href="/news/">
-                <i class="announcement icon"></i> 最新消息
-            </a>
-            <a class="item" href="/feeds/">
-                <i class="feed icon"></i> 公告
-            </a>
-            <a class="item" href="/members/">
-                <i class="users icon"></i> 成員
-            </a>
-
-            <div class="ui pointing dropdown link item">
-                <i class="idea icon"></i>研究<i class="dropdown icon"></i>
-
-                <div class="menu">
-                    <a href="/about/" class="item">研究簡介</a>
-
-                    <div class="item">
-                        <i class="dropdown icon"></i>
-                        <span class="text">研究主題</span>
+                <div class="right menu">
+                    <div class="ui icon top right pointing dropdown button" style="background: #22C3AA">
+                        <i class="white content icon"></i>
 
                         <div class="menu">
-                            <a href="/ylli_research/" class="item">李毅郎</a>
-                            <a href="/tyho_research/" class="item">何宗易</a>
-                            <a href="/kcw_research/" class="item">吳凱強</a>
+                            <div class="header">EDA</div>
+                            <a class="item" href="/">首頁</a>
+                            <a class="item" href="/news/">最新消息</a>
+                            <a class="item" href="/feeds/">公告</a>
+                            <a class="item" href="/members/">成員</a>
+                            <a class="item" href="/about/">EDA 簡介</a>
+
+                            <div class="ui dropdown item">研究<i class="left dropdown icon"></i>
+
+                                <div class="left menu">
+                                    <a href="/about/" class="item" style="text-align: right">研究簡介</a>
+
+                                    <div class="header">研究領域</div>
+                                    <a href="/ylli_research/" class="item">李毅郎</a>
+                                    <a href="/tyho_research/" class="item">何宗易</a>
+                                    <a href="/kcw_research/" class="item">吳凱強</a>
+                                </div>
+                            </div>
+                            <a class="item" href="/achievement/">研究成果</a>
+                            <a class="item" href="/activity/">活動</a>
+                            <a class="item" href="/downloads/">下載</a>
+
+                            <div class="ui divider"></div>
+                            <a class="item" href="/contact/">聯絡我們</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <a class="item" href="/achievement/">
-                <i class="certificate icon"></i> 研究成果
-            </a>
-            <a class="item" href="/activity/">
-                <i class="photo icon"></i> 活動
-            </a>
-            <a class="item" href="/downloads/">
-                <i class="folder outline icon"></i> 下載
-            </a>
+            <div class="tablet only row" style="padding:0;">
+                <a class="item" href="/"> EDA實驗室 </a>
+                <a class="item" href="/"> tablet </a>
 
-            <div class="right menu">
-                {% if user.is_authenticated %}
-                    <a class="item"><i class="user icon"></i>{{ user.username }}</a>
-                    <a href="/logout/" class="item">登出</a>
-                {% endif %}
-                {% if not user.is_authenticated %}
-                    <a class="item">not login!</a>
-                {% endif %}
-                <a class="item" href="/contact"><i class="mail outline icon"></i>聯絡我們</a>
+                <div class="right menu">
+                    <div class="ui icon top right pointing dropdown button" style="background: #22C3AA">
+                        <i class="white content icon"></i>
+
+                        <div class="menu">
+                            <div class="header">EDA</div>
+                            <a class="item" href="/">首頁</a>
+                            <a class="item" href="/news/">最新消息</a>
+                            <a class="item" href="/feeds/">公告</a>
+                            <a class="item" href="/members/">成員</a>
+
+                            <div class="ui dropdown item">研究<i class="left dropdown icon"></i>
+
+                                <div class="left menu">
+                                    <a href="/about/" class="item" style="text-align: right">研究簡介</a>
+
+                                    <div class="header">研究領域</div>
+                                    <a href="/ylli_research/" class="item">李毅郎</a>
+                                    <a href="/tyho_research/" class="item">何宗易</a>
+                                    <a href="/kcw_research/" class="item">吳凱強</a>
+                                </div>
+                            </div>
+                            <a class="item" href="/achievement/">研究成果</a>
+                            <a class="item" href="/activity/">活動</a>
+                            <a class="item" href="/downloads/">下載</a>
+
+                            <div class="ui divider"></div>
+                            <a class="item" href="/contact/">聯絡我們</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="computer only row" style="padding:0;">
+                <a class="item" href="/"> EDA實驗室 </a>
+                <a class="item" href="/">
+                    <i class="home icon"></i> 首頁
+                </a>
+                <a class="item" href="/news/">
+                    <i class="announcement icon"></i> 最新消息
+                </a>
+                <a class="item" href="/feeds/">
+                    <i class="feed icon"></i> 公告
+                </a>
+                <a class="item" href="/members/">
+                    <i class="users icon"></i> 成員
+                </a>
+
+                <div class="ui pointing dropdown link item">
+                    <i class="idea icon"></i>研究<i class="dropdown icon"></i>
+
+                    <div class="menu">
+                        <a href="/about/" class="item">研究簡介</a>
+
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">研究主題</span>
+
+                            <div class="menu">
+                                <a href="/ylli_research/" class="item">李毅郎</a>
+                                <a href="/tyho_research/" class="item">何宗易</a>
+                                <a href="/kcw_research/" class="item">吳凱強</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="item" href="/achievement/">
+                    <i class="certificate icon"></i> 研究成果
+                </a>
+                <a class="item" href="/activity/">
+                    <i class="photo icon"></i> 活動
+                </a>
+                <a class="item" href="/downloads/">
+                    <i class="folder outline icon"></i> 下載
+                </a>
+
+                <div class="right menu">
+                    {% if user.is_authenticated %}
+                        <a class="item"><i class="user icon"></i>{{ user.username }}</a>
+                        <a href="/logout/" class="item">登出</a>
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                        <a href="/login/ "class="item">登入</a>
+                    {% endif %}
+                    <a class="item" href="/contact"><i class="mail outline icon"></i>聯絡我們</a>
+                </div>
             </div>
         </div>
     </div>
+    {% block content %}
+
+    {% endblock content %}
+    <!--footer for contact info-->
 </div>
-{% block content %}
 
-{% endblock content %}
-<!--footer for contact info-->
 <footer>
-    <br>
-
-    <div style="background-color: #DB6968; padding: 60px; width: 100%; z-index: 1001; button:0;">
+    <div id="footer" style="background-color: #DB6968; padding:60px ;width: 100%; z-index: 1001;">
         <div class="ui stackable divided grid"
              style='color:white ;font-size: large; font-family: "Arial", "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "微軟正黑體", "Microsoft JhengHei", "標楷體", "DFKai-SB", "sans-serif";'>
             <div class="five wide center aligned  column">
@@ -188,7 +210,6 @@
         </div>
     </div>
 </footer>
-
 
 <script text="text/javascript">
     $(document).ready(function () {
