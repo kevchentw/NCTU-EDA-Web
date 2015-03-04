@@ -1,8 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-    {% comment %}
-    http://people.cs.nctu.edu.tw/~kcw/
-    {% endcomment %}
+<script>
+$(document).ready(function(){
+	$('div.CC').hide();
+	$('div.less').hide();
+	$('div.more').click(function(){
+		var id = $(this).attr('bid');
+		$('#' + id).show();
+		$('div[bid=' + id + '].less').show();
+		$('div[bid=' + id + '].more').hide();
+	});
+	$('div.less').click(function(){
+		var id = $(this).attr('bid');
+		$('#' + id).hide();
+		$('div[bid=' + id + '].more').show();
+		$('div[bid=' + id + '].less').hide();
+	});
+});
+</script>
 	<div class="ui stackable grid" style="margin-top:75px">
 		<div class="centered row">
 			<div class="four wide column">
@@ -82,19 +97,19 @@
 				</div>
 				<div class="ui segment">
 					<a class="ui orange left ribbon label">Honors and Awards</a>
-					<div class="ui blue animated fade button">
+					<div bid="honors" class="ui blue animated fade button more">
 					  <div class="visible content">More</div>
 					  <div class="hidden content">
 						<i class="zoom icon"></i>
 					  </div>
 					</div>
-					<div class="ui blue animated fade button">
+					<div bid="honors" class="ui blue animated fade button less">
 					  <div class="visible content">Less</div>
 					  <div class="hidden content">
 						<i class="zoom out icon"></i>
 					  </div>
 					</div>
-					<div id="honors" class="ui bulleted list">
+					<div id="honors" class="ui bulleted list CC">
 						<a class="item">2014      ACM Distinguished Speaker</a>
 						<a class="item">2014      Hans Fischer Fellowship, Institute for Advanced Study, Technical University of Munich, Germany</a>
 						<a class="item">2014      JSPS Invitation Fellowship, Japan Society for the Promotion of Science, Japan</a>
@@ -120,8 +135,9 @@
 						<a class="item">2003      2nd Place, CAD Programming Contest, Ministry of Education, Taiwan</a>
 						<a class="item">2002      1st Place, CAD Programming Contest, Ministry of Education, Taiwan</a>
 					</div>
-					<div class="ui yellow horizontal label">Best Paper Awards (Nomination)</div>
-					<div class="ui bulleted list">
+					<br/><br/>
+					<div id="honors" class="ui yellow horizontal label CC">Best Paper Awards (Nomination)</div>
+					<div id="honors" class="ui bulleted list CC">
 						<a class="item">2012      Excellent Innovative Young Scholar Award, Taiwan Comprehensive University System</a>
 						<a class="item">2012      Distinguished Young Scholar Award, Taiwan IC Design Society</a>
 						<a class="item">2012      Excellent Young Researcher Project Award, National Science Council, Taiwan</a>
@@ -136,8 +152,8 @@
 						<a class="item">2003      2nd Place, CAD Programming Contest, Ministry of Education, Taiwan</a>
 						<a class="item">2002      1st Place, CAD Programming Contest, Ministry of Education, Taiwan</a>
 					</div>
-					<div class="ui yellow horizontal label">Student Awards (received by students under my supervision)</div>
-					<div class="ui bulleted list">
+					<div id="honors" class="ui yellow horizontal label CC">Student Awards (received by students under my supervision)</div>
+					<div id="honors" class="ui bulleted list CC">
 						<a class="item">2014      Best Thesis Award, Institute of Information and Computer Machinery, Taiwan</a>
 						<a class="item">2013      Best Thesis Award, Institute of Information and Computer Machinery, Taiwan</a>
 						<a class="item">2013      3rd Place Thesis Award, Chinese Institute of Electrical Engineering, Taiwan</a>
