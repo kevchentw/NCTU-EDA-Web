@@ -6,13 +6,13 @@ $(document).ready(function(){
 	$('div.less').hide();
 	$('div.more').click(function(){
 		var id = $(this).attr('bid');
-		$('#' + id).show();
+		$('[did=' + id + ']').show();
 		$('div[bid=' + id + '].less').show();
 		$('div[bid=' + id + '].more').hide();
 	});
 	$('div.less').click(function(){
 		var id = $(this).attr('bid');
-		$('#' + id).hide();
+		$('[did=' + id + ']').hide();
 		$('div[bid=' + id + '].more').show();
 		$('div[bid=' + id + '].less').hide();
 	});
@@ -109,7 +109,7 @@ $(document).ready(function(){
 						<i class="zoom out icon"></i>
 					  </div>
 					</div>
-					<div id="honors" class="ui bulleted list CC">
+					<div did="honors" class="ui bulleted list CC">
 						<a class="item">2014      ACM Distinguished Speaker</a>
 						<a class="item">2014      Hans Fischer Fellowship, Institute for Advanced Study, Technical University of Munich, Germany</a>
 						<a class="item">2014      JSPS Invitation Fellowship, Japan Society for the Promotion of Science, Japan</a>
@@ -135,9 +135,8 @@ $(document).ready(function(){
 						<a class="item">2003      2nd Place, CAD Programming Contest, Ministry of Education, Taiwan</a>
 						<a class="item">2002      1st Place, CAD Programming Contest, Ministry of Education, Taiwan</a>
 					</div>
-					<br/><br/>
-					<div id="honors" class="ui yellow horizontal label CC">Best Paper Awards (Nomination)</div>
-					<div id="honors" class="ui bulleted list CC">
+					<div did="honors" class="ui yellow horizontal label CC">Best Paper Awards (Nomination)</div>
+					<div did="honors" class="ui bulleted list CC">
 						<a class="item">2012      Excellent Innovative Young Scholar Award, Taiwan Comprehensive University System</a>
 						<a class="item">2012      Distinguished Young Scholar Award, Taiwan IC Design Society</a>
 						<a class="item">2012      Excellent Young Researcher Project Award, National Science Council, Taiwan</a>
@@ -152,8 +151,8 @@ $(document).ready(function(){
 						<a class="item">2003      2nd Place, CAD Programming Contest, Ministry of Education, Taiwan</a>
 						<a class="item">2002      1st Place, CAD Programming Contest, Ministry of Education, Taiwan</a>
 					</div>
-					<div id="honors" class="ui yellow horizontal label CC">Student Awards (received by students under my supervision)</div>
-					<div id="honors" class="ui bulleted list CC">
+					<div did="honors" class="ui yellow horizontal label CC">Student Awards (received by students under my supervision)</div>
+					<div did="honors" class="ui bulleted list CC">
 						<a class="item">2014      Best Thesis Award, Institute of Information and Computer Machinery, Taiwan</a>
 						<a class="item">2013      Best Thesis Award, Institute of Information and Computer Machinery, Taiwan</a>
 						<a class="item">2013      3rd Place Thesis Award, Chinese Institute of Electrical Engineering, Taiwan</a>
@@ -180,15 +179,41 @@ $(document).ready(function(){
 						<a class="item">2009      3rd Place, National Collegiate Programming Contest, Ministry of Education, Taiwan</a>
 						<a class="item">2008      1st Place, CAD Programming Contest, Ministry of Education, Taiwan</a>
 					</div>
+					<br /><br />
 					<a class="ui orange left ribbon label">Professional Societies</a>
-					<div class="ui bulleted list">
+					<div bid="societies" class="ui blue animated fade button more">
+					  <div class="visible content">More</div>
+					  <div class="hidden content">
+						<i class="zoom icon"></i>
+					  </div>
+					</div>
+					<div bid="societies" class="ui blue animated fade button less">
+					  <div class="visible content">Less</div>
+					  <div class="hidden content">
+						<i class="zoom out icon"></i>
+					  </div>
+					</div>
+					<div did="societies" class="ui bulleted list CC">
 						<a class="item">Member:      Association of Computing Machinery (ACM)</a>
 						<a class="item">Senior Member:     Institute of Electrical and Electronics Engineers (IEEE)</a>
 						<a class="item">Life Member:     Institute of Information and Computer Machinery (IICM)</a>
 						<a class="item">Life Member:     Taiwan IC Design Society (TICD)</a>
 					</div>
+					<br /><br />
 					<a class="ui orange left ribbon label">Professional Activities</a>
-					<div class="ui bulleted list">
+					<div bid="activities" class="ui blue animated fade button more">
+					  <div class="visible content">More</div>
+					  <div class="hidden content">
+						<i class="zoom icon"></i>
+					  </div>
+					</div>
+					<div bid="activities" class="ui blue animated fade button less">
+					  <div class="visible content">Less</div>
+					  <div class="hidden content">
+						<i class="zoom out icon"></i>
+					  </div>
+					</div>
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Associate Editor</a>
 							<div class="list">
@@ -199,7 +224,7 @@ $(document).ready(function(){
 						</div>
 					</div>
 
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Guest Editor</a>
 							<div class="list">
@@ -208,7 +233,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Referee</a>
 							<div class="list">
@@ -220,7 +245,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">TPC Member</a>
 							<div class="list">
@@ -245,7 +270,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">TPC Secretary</a>
 							<div class="list">
@@ -253,7 +278,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Chapter Chair</a>
 							<div class="list">
@@ -261,7 +286,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Chapter Vice Chair</a>
 							<div class="list">
@@ -269,7 +294,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Co-Chair</a>
 							<div class="ui bulleted list">
@@ -277,7 +302,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Global Repre</a>
 							<div class="ui bulleted list">
@@ -285,7 +310,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Publication Chair</a>
 							<div class="ui bulleted list">
@@ -293,7 +318,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Demo Chair</a>
 							<div class="ui bulleted list">
@@ -301,7 +326,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Publicity Chair</a>
 							<div class="ui bulleted list">
@@ -310,7 +335,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="ui bulleted list">
+					<div did="activities" class="ui bulleted list CC">
 						<div class="item">
 							<a class="item">Session Chair</a>
 							<div class="ui bulleted list">
@@ -321,8 +346,21 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
+					<br /><br />
 					<a class="ui orange left ribbon label">Keynotea/Invited Conference Talks</a>
-					<div class="ui bulleted list">
+					<div bid="talks" class="ui blue animated fade button more">
+						<div class="visible content">More</div>
+						<div class="hidden content">
+							<i class="zoom icon"></i>
+						</div>
+					</div>
+					<div bid="talks" class="ui blue animated fade button less">
+						<div class="visible content">Less</div>
+						<div class="hidden content">
+							<i class="zoom out icon"></i>
+						</div>
+					</div>
+					<div did="talks" class="ui bulleted list CC">
 						<a class="item">
 							<strong>“Top-Down Synthesis Methodology for Flow-Based Microfluidic Biochips”</strong><br />
 							IEEE International Symposium on Electronic Designs (ISED), Kolkata, India, Dec. 2012
@@ -340,8 +378,21 @@ $(document).ready(function(){
 							China Semiconductor Technology International Conference (CSTIC), Shanghai, China, Mar. 2014
 						</a>
 					</div>
+					<br /><br />
 					<a class="ui orange left ribbon label">Tutorials</a>
-					<div class="ui bulleted list">
+					<div bid="tutorials" class="ui blue animated fade button more">
+						<div class="visible content">More</div>
+						<div class="hidden content">
+							<i class="zoom icon"></i>
+						</div>
+					</div>
+					<div bid="tutorials" class="ui blue animated fade button less">
+						<div class="visible content">Less</div>
+						<div class="hidden content">
+							<i class="zoom out icon"></i>
+						</div>
+					</div>
+					<div did="tutorials" class="ui bulleted list CC">
 						<a class="item">
 							<strong>“Digital Microfluidic Biochips: A Vision for Functional Diversity and More than Moore”</strong><br />
 							IEEE/ACM International Conference on Computer-Aided Designs (ICCAD), San Jose, CA, Nov. 2010
@@ -375,8 +426,21 @@ $(document).ready(function(){
 							IEEE/ACM Design, Automation and Test in Europe (DATE), Dresden, Germany, Mar. 2014
 						</a>
 					</div>
+					<br /><br />
 					<a class="ui orange left ribbon label">Special Sessions</a>
-					<div class="ui bulleted list">
+					<div bid="sessions" class="ui blue animated fade button more">
+						<div class="visible content">More</div>
+						<div class="hidden content">
+							<i class="zoom icon"></i>
+						</div>
+					</div>
+					<div bid="sessions" class="ui blue animated fade button less">
+						<div class="visible content">Less</div>
+						<div class="hidden content">
+							<i class="zoom out icon"></i>
+						</div>
+					</div>
+					<div did="sessions" class="ui bulleted list CC">
 						<a class="item">
 							<strong>“Emerging Topics in Physical Design”</strong><br />
 							IEEE International Midwest Symposium on Circuits and Systems (MWSCAS), Seoul, Korea, Aug. 2011
@@ -402,13 +466,38 @@ $(document).ready(function(){
 							IEEE International Conference on VLSI Design (VLSI), Bangalore, India, Jan. 2015
 						</a>
 					</div>
-					<!--
+					<br /><br />
 					<a class="ui orange left ribbon label">Dagstuhl Seminar</a>
-					<div class="ui bulleted list">
+					<div bid="seminar" class="ui blue animated fade button more">
+						<div class="visible content">More</div>
+						<div class="hidden content">
+							<i class="zoom icon"></i>
+						</div>
+					</div>
+					<div bid="seminar" class="ui blue animated fade button less">
+						<div class="visible content">Less</div>
+						<div class="hidden content">
+							<i class="zoom out icon"></i>
+						</div>
+					</div>
+					<div did="seminar" class="ui bulleted list CC">
 						<a class="item">“Design of Microfluidic Biochips: Connecting Algorithms and Foundations of Chip Design to Biochemistry and the Life Sciences”, Germany, Aug. 2015</a>
 					</div>
+					<br /><br />
 					<a class="ui orange left ribbon label">Invited Talks in Academic Institutes</a>
-					<div class="ui bulleted list">
+					<div bid="institutes" class="ui blue animated fade button more">
+						<div class="visible content">More</div>
+						<div class="hidden content">
+							<i class="zoom icon"></i>
+						</div>
+					</div>
+					<div bid="institutes" class="ui blue animated fade button less">
+						<div class="visible content">Less</div>
+						<div class="hidden content">
+							<i class="zoom out icon"></i>
+						</div>
+					</div>
+					<div did="institutes" class="ui bulleted list CC">
 						<a class="item">Kitakyushu University, Japan, September 13, 2009</a>
 						<a class="item">Kyoto University, Japan, July 21, 2010</a>
 						<a class="item">Duke University, US, February 10, 2011</a>
@@ -445,16 +534,29 @@ $(document).ready(function(){
 						<a class="item">Tokyo Institute of Technology, January 15, 2015</a>
 						<a class="item">The University of Tokyo, January 16, 2015</a>
 					</div>
-					<a class="ui orange left ribbon label">Dagstuhl Seminar</a>
 					<br /><br />
-					<div class="ui yellow horizontal label">Books and Book Chapters</div>
-					<div class="ui bulleted list">
+					<a class="ui orange left ribbon label">Publications</a>
+					<div bid="publications" class="ui blue animated fade button more">
+						<div class="visible content">More</div>
+						<div class="hidden content">
+							<i class="zoom icon"></i>
+						</div>
+					</div>
+					<div bid="publications" class="ui blue animated fade button less">
+						<div class="visible content">Less</div>
+						<div class="hidden content">
+							<i class="zoom out icon"></i>
+						</div>
+					</div>
+					<br /><br />
+					<div did="publications" class="ui yellow horizontal label CC">Books and Book Chapters</div>
+					<div did="publications" class="ui bulleted list CC">
 						<a class="item">1.  T.-Y. Ho, Y.-W. Chang, and S.-J. Chen, Full Chip Nanometer Routing Techniques, Springer, 2007. </a>
 						<a class="item">2.  T.-Y. Ho and S.-H. Liu, "Fast Legalization for Standard Cell Placement with Simultaneous Wirelength and Displacement Minimization" in VLSI-SoC: Forward-Looking Trends in IC and Systems Design (edited by J. L. Ayala, D. Atienza Alonso, and R. Reis), Springer, 2012 (Invited).</a>
 						<a class="item">3.  Y. Luo, K. Chakrabarty, and T.-Y. Ho, Hardware/Software Co-Design and Optimization for Cyberphysical Integration in Digital Microfluidic Biochips, Springer, 2014.</a>
 					</div>
-					<div class="ui yellow horizontal label">ACM/IEEE Journal Papers</div>
-					<div class="ui bulleted list">
+					<div did="publications" class="ui yellow horizontal label CC">ACM/IEEE Journal Papers</div>
+					<div did="publications" class="ui bulleted list CC">
 						<a class="item">1.  T.-Y. Ho, Y.-W. Chang, S.-J. Chen, and D. T. Lee, "Crosstalk- and Performance- Driven Multilevel Full-Chip Routing," IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (IEEE TCAD), vol. 24, no. 6, pp. 869-878, June 2005 (Regular Paper). </a>
 						<a class="item">2.  T.-W. Huang, C.-H. Lin, and T.-Y. Ho, "A Contamination Aware Droplet Routing Algorithm for the Synthesis of Digital Microfluidic Biochips," IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (IEEE TCAD), vol. 29, no. 11, pp. 1682-1695, November 2010 (Regular Paper). </a>
 						<a class="item">3.  T.-W. Huang and T.-Y. Ho, "A Two-Stage ILP-Based Droplet Routing Algorithm for Pin-Constrained Digital Microfluidic Biochips," IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (IEEE TCAD), vol. 30, no. 2, pp. 215-228, February 2011 (Regular Paper). </a>
@@ -485,8 +587,8 @@ $(document).ready(function(){
 						<a class="item">28.  T.-M. Tseng, B. Li, and T.-Y. Ho, and U. Schlichtmann, "ILP-based Alleviation of Dense Meander Segments with Prioritized Shifting and Progressive Fixing in PCB Routing," accepted in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (IEEE TCAD) (Regular Paper).</a>
 						<a class="item">29.  T. A. Dinh, S. Yamashita, and T.-Y. Ho, "An Optimal Pin-Count Design with Logic Optimization for Digital Microfluidic Biochips," accepted in IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (IEEE TCAD) (Regular Paper).</a>
 					</div>
-					<div class="ui yellow horizontal label">Other Journal Papers:</div>
-					<div class="ui bulleted list">
+					<div did="publications" class="ui yellow horizontal label CC">Other Journal Papers:</div>
+					<div did="publications" class="ui bulleted list CC">
 						<a class="item">1.  T.-Y. Ho, Y.-W. Chang, and S.-J. Chen, "Multilevel Routing with Jumper Insertion for Antenna Avoidance," Elsevier Integration: The VLSI Journal, vol. 39, Issue 4, pp. 420-432, July 2006 (Regular Paper) (EI/SCI). </a>
 						<a class="item">2.  T.-Y. Ho, "PIXAR: A Performance-Driven X-Architecture Router Based on a Novel Multilevel Framework," Elsevier Integration: The VLSI Journal, vol. 42, Issue 3, pp. 400-408, June 2009 (Regular Paper) (EI/SCI).</a>
 						<a class="item">3.  P.-H. Wu and T.-Y. Ho, "Bus-Driven Floorplanning with Bus Pin Assignment and Deviation Minimization," Elsevier Integration: The VLSI Journal, Vol. 45, Issue 4, pp. 405-426, September 2012 (Regular Paper) (EI/SCI). </a>
@@ -495,8 +597,8 @@ $(document).ready(function(){
 						<a class="item">6.  T.-Y. Ho, "Design Automation for Digital Microfluidic Biochips," IPSJ Transactions on System LSI Design Methodology, Vol. 7, pp. 16-26, February 2014 <font color=red>(Invited Paper)</font> (EI/SCI).</a>
 						<a class="item">7.  S.-T. Yu and T.-Y. Ho, "Chip-Level Design for Digital Microfluidic Biochips," International Journal of Automation and Smart Technology, Vol. 4, No. 4, pp. 202-207, 2014 <font color=red>(Invited Paper)</font> (EI/SCI).</a>
 					</div>
-					<div class="ui yellow horizontal label">ACM/IEEE Conference Papers:</div>
-					<div class="ui bulleted list">
+					<div did="publications" class="ui yellow horizontal label CC">ACM/IEEE Conference Papers:</div>
+					<div did="publications" class="ui bulleted list CC">
 						<a class="item">1.  T.-Y. Ho, Y.-W. Chang, S.-J. Chen, and D. T. Lee, "A Fast Crosstalk- and Performance-Driven Multilevel Routing System," Proceedings of IEEE/ACM International Conference on Computer-Aided Design (ICCAD-2003), pp. 382-387, San Jose, CA, Nov. 2003. (Top Conference in EDA Field) </a>
 						<a class="item">2.  T.-Y. Ho, Y.-W. Chang, and S.-J. Chen, "Multilevel Routing with Antenna Avoidance," Proceedings of ACM International Symposium on Physical Design (ISPD-2004), pp. 34-40, Phoenix, AZ, April 2004. </a>
 						<a class="item">3.  T.-Y. Ho, Y.-W. Chang, and S.-J. Chen, "Multilevel Routing with Jumper Insertion for Antenna Avoidance," Proceedings of IEEE International SOC Conference (SOCC-2004), pp. 63-66, Santa Clara, CA, September 2004.</a>
@@ -573,8 +675,8 @@ $(document).ready(function(){
 						<a class="item">74.  T.-M. Tseng, B. Li, T.-Y. Ho, and U. Schlichtmann, "Reliability-aware Synthesis for Flow-based Microfluidic Biochips by Dynamic-device Mapping," Proceedings of ACM/IEEE Design Automation Conference (DAC-2015), pp., San Francisco, CA, June 2015. (Top Conference in EDA Field)</a>
 						<a class="item">75.  W. Wen, C.-R. Wu, X. Hu, B. Liu, T.-Y. Ho, X. Li, and Y. Chen, "LNCS: An EDA Framework for Large Scale Hybrid Neuromorphic Computing Systems," Proceedings of ACM/IEEE Design Automation Conference (DAC-2015), pp., San Francisco, CA, June 2015. (Top Conference in EDA Field) (Best Paper Nomination)</a>
 					</div>
-					<div class="ui yellow horizontal label">Other Conference Papers:</div>
-					<div class="ui bulleted list">
+					<div did="publications" class="ui yellow horizontal label CC">Other Conference Papers:</div>
+					<div did="publications" class="ui bulleted list CC">
 						<a class="item">1.  T.-Y. Ho, Y.-W. Chang, and S.-J. Chen, "A Fast Crosstalk-Driven Multilevel Routing System," The 14th VLSI Design/CAD Symposium, pp. 25-28, Hua-Lien, Taiwan, Aug. 2003.</a>
 						<a class="item">2.  C.-F. Chang, T.-Y. Ho, and Y.-W. Chang, "XRoute: a multilevel routing system for the X-based architecture," The 16th VLSI Design/CAD Symposium, pp. 202-205, Hua-Lien, Taiwan, Aug. 2005.</a>
 						<a class="item">3.  T.-W. Huang and T.-Y. Ho, "Contamination Aware Droplet Routing for Digital Microfluidic Biochips," Proceedings of International Workshop on Bio-Design Automation (IWBDA-2009), pp. 13, San Francisco, CA, July 2009.</a>
@@ -591,8 +693,8 @@ $(document).ready(function(){
 						<a class="item">14. T.-Y. Ho, "Physical Design for Microfluidic Biochips," Proceedings of Workshop on Synthesis and System Integration of Mixed Information technologies (SASIMI-2013), pp. 290, Sapporo, Japan, October 2013. (Invited Talk)</a>
 
 					</div>
-					<div class="ui yellow horizontal label">Other Publications</div>
-					<div class="ui bulleted list">
+					<div did="publications" class="ui yellow horizontal label CC">Other Publications</div>
+					<div did="publications" class="ui bulleted list CC">
 						<a class="item">1.  S.-J. Chen and T.-Y. Ho, "A new interconnect architecture: X-architecture," Component Magazine, Jan. 2005 (Invited Article).</a>
 						<a class="item">2.  T.-Y. Ho, Y.-W. Chang, and S.-J. Chen, "Multi-Level Routing with Antenna Avoidance," Bulletin of the College of Engineering, NTU, No. 93, pp. 51-61, Feb. 2005.</a>
 						<a class="item">3.  T.-Y. Ho, "Electron: An Efficient and Robust Droplet Routing Algorithm for Digital Microfluidic Biochips", Proceedings of Japan-Taiwan Semiconductor EDA Science and Technology Symposium, pp. 283-288, Kitakyushu, Japan, Sep. 2009.</a>
@@ -601,11 +703,10 @@ $(document).ready(function(){
 						<a class="item">6.  T.-Y. Ho, "What is Digital Microfluidic Biochips?," ACM/SIGDA E-Newsletter, Vol. 43, No. 7, Jul. 2013 (Invited Article).</a>
 						<a class="item">7.  S. Bhattacharjee, A. Banerjee, T.-Y. Ho, K. Chakrabarty, B. B. Bhattacharya: Algorithms for Producing Linear Dilution Gradient with Digital Microfluidics. arXiv, 2013.</a>
 					</div>
-					<div class="ui yellow horizontal label">Patent</div>
-					<div class="ui bulleted list">
+					<div did="publications" class="ui yellow horizontal label CC">Patent</div>
+					<div did="publications" class="ui bulleted list CC">
 						<a class="item">1.      T.-Y. Ho, S.-J. Jiang, and J.-L. Wu, Method of Resistor Matching in Analog Integrated Circuit Layout, US Patent 20,130,145,332, June 6, 2013.</a>
 					</div>
-					-->
 				</div>
 			</div>
 		</div>
