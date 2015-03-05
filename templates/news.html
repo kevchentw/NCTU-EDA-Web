@@ -173,16 +173,13 @@ $(document).ready(function(){
             <div class="ui centered grid">
                 <div class="middle aligned column">
                     <div class="ui borderless pagination menu">
-                        <a class="item">
+                        <a href="/news/?page={{pre_page}}" class="item">
                             <i class="left arrow icon"></i> 上一頁
                         </a>
-                        <a class="item">1</a>
-                        <a class="item">2</a>
-                        <a class="item">3</a>
-                        <a class="item">4</a>
-                        <a class="item">5</a>
-                        <a class="item">6</a>
-                        <a class="item">
+                        {% for i in max_page %}
+                        <a href="/news/?page={{i}}" class="item">{{i}}</a>
+                        {% endfor %}
+                        <a href="/news/?page={{nxt_page}}" class="item">
                             下一頁 <i class="icon right arrow"></i>
                         </a>
                     </div>

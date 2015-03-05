@@ -1,8 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-    {% comment %}
-    http://people.cs.nctu.edu.tw/~kcw/
-    {% endcomment %}
+<script>
+$(document).ready(function(){
+	$('div.CC').hide();
+	$('div.less').hide();
+	$('div.more').click(function(){
+		var id = $(this).attr('bid');
+		$('[did=' + id + ']').show();
+		$('div[bid=' + id + '].less').show();
+		$('div[bid=' + id + '].more').hide();
+	});
+	$('div.less').click(function(){
+		var id = $(this).attr('bid');
+		$('[did=' + id + ']').hide();
+		$('div[bid=' + id + '].more').show();
+		$('div[bid=' + id + '].less').hide();
+	});
+});
+</script>
     <div class="ui stackable grid" style="margin-top:75px">
         <div class="centered row">
             <div class="four wide column">
@@ -94,8 +109,20 @@
                 </div>
                 <div class="ui segment">
                     <a class="ui orange left ribbon label">Journal Articles</a>
+					<div bid="articals" class="ui blue animated fade button more">
+					  <div class="visible content">More</div>
+					  <div class="hidden content">
+						<i class="zoom icon"></i>
+					  </div>
+					</div>
+					<div bid="articals" class="ui blue animated fade button less">
+					  <div class="visible content">Less</div>
+					  <div class="hidden content">
+						<i class="zoom out icon"></i>
+					  </div>
+					</div>
 
-                    <div class="ui bulleted list">
+                    <div did="articals" class="ui bulleted list CC">
                         <a class="item">[J05] Kai-Chiang Wu, Niharika Singh, and Diana Marculescu, "Mitigating
                             Performance Degradation: A Unified Perspective of Vth Shifts due to Aging," in
                             preparation.</a>
@@ -113,9 +140,22 @@
                             for Soft Error Robustness of Logic Circuits," IEEE Transactions on Very Large Scale
                             Integration Systems, vol. 21, no. 2, pp. 367-379, Feb. 2013.</a>
                     </div>
+					<br /><br />
                     <a class="ui orange left ribbon label">Conference Papers</a>
 
-                    <div class="ui bulleted list">
+					<div bid="papers" class="ui blue animated fade button more">
+					  <div class="visible content">More</div>
+					  <div class="hidden content">
+						<i class="zoom icon"></i>
+					  </div>
+					</div>
+					<div bid="papers" class="ui blue animated fade button less">
+					  <div class="visible content">Less</div>
+					  <div class="hidden content">
+						<i class="zoom out icon"></i>
+					  </div>
+					</div>
+                    <div did="papers" class="ui bulleted list CC">
                         <a class="item">[C11] Kai-Chiang Wu, Ming-Chao Lee, Diana Marculescu, and Shih-Chieh Chang,
                             "Mitigating Lifetime Underestimation: A System-Level Approach Considering Temperature
                             Variations and Correlations between Failure Mechanisms," in Proc. of Design, Automation, and
@@ -152,6 +192,7 @@
                             Delay Variation Tolerance," in Proc. of Design Automation Conference (DAC), pp. 814-819,
                             June 2004. (Acceptance rate = 163/785 = 20.76%) </a>
                     </div>
+					<br /><br />
                     <a class="ui orange left ribbon label">Talks & Posters</a>
 
                     <div class="ui bulleted list">

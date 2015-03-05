@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import math
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login as auth_login, authenticate
 from django.shortcuts import HttpResponse as response
@@ -27,9 +28,19 @@ def home(request):
 
 def news(request):
     if request.method == 'GET':
+        page = int(request.GET.get('page', '1'))
         d = {}
         d['news_list_1'] = NewsModel.objects.filter(top__exact=True).order_by('-modified_time')
-        d['news_list_0'] = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')
+        nl = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')
+        try:
+            d['news_list_0'] = nl[(page-1)*5: min(len(nl)-1, (page-1)*5+5)]
+        except:
+            d['news_list_0'] = []
+        d['page'] = page
+        d['max_page'] = range(1, math.ceil(len(nl)/5)+1)
+        d['_max_page'] = math.ceil(len(nl)/5)
+        d['pre_page'] = page - 1 if page != 1 else page
+        d['nxt_page'] = page + 1 if page != d['_max_page'] else page
         return render(request, "news.html", d)
     elif request.method == 'POST':
         req = request.POST.get('req', 'err')

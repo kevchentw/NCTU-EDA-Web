@@ -2,6 +2,7 @@
 {% block content %}
 <script>
 $(document).ready(function(){
+    $(document).ready(function () {$('.ui.checkbox').checkbox();});
 	$('button.mod')	.click(function(){
 		var title=$('input[name=title]').val();
 		var content=$('textarea[name=content]').val();
@@ -9,7 +10,6 @@ $(document).ready(function(){
 		var author=$('input[name=author]').val();
 		var classification=$('select[name=classification]').val();
 		var csrfmiddlewaretoken=$('input[name=csrfmiddlewaretoken]').val();
-		alert(author);
 		if(title==''){
 			alert('請輸入標題');
 			return;
@@ -67,7 +67,7 @@ $(document).ready(function(){
                             </select>
                         </div>
                         <div class="field">
-                            <div class="ui toggle checkbox">
+                            <div class="ui toggle checkbox {% if news.top %}checked{% endif %}">
                                 <input name="top" type="radio" value="1" {% if news.top %}checked{% endif %}>
                                 <label>置頂</label>
                             </div>
