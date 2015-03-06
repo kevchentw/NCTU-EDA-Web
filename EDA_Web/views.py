@@ -218,6 +218,7 @@ def ylli(request):
 
 def ylli_research(request):
     if request.method == 'GET':
+        return redirect('http://eda.cs.nctu.edu.tw')
         return render(request, "ylli_research.html")
     elif request.method == 'POST':
         return response('')
