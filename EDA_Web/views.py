@@ -20,7 +20,8 @@ def home(request):
     if request.method == 'GET':
         d = {}
         d['news_list_1'] = NewsModel.objects.filter(top__exact=True).order_by('-modified_time')[:3]
-        d['news_list_0'] = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')[:4]
+        tmp = max(6-len(d['news_list_1']), 4)
+        d['news_list_0'] = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')[:tmp]
         return render(request, "home.html", d)
     elif request.method == 'POST':
         return response('')
