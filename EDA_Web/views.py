@@ -100,6 +100,11 @@ def members(request):
     elif request.method == 'POST':
         return response('')
 
+def members_student(request):
+    if request.method == 'GET':
+        return render(request, "members_student.html")
+    elif request.method == 'POST':
+        return response('')
 
 def about(request):
     if request.method == 'GET':
