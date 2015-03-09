@@ -105,7 +105,7 @@ $(document).ready(function(){
                                 </span>
                                     </div>
                                     <div class="description">
-                                        {{ news.content }}
+                                        {{ news.content | linebreaksbr }}
                                     </div>
                                     <div class="extra">
                                         <a href="/news/{{ news.nid }}" class="ui right floated primary button">詳細閱讀
@@ -142,15 +142,13 @@ $(document).ready(function(){
                             </span>
                                     </div>
                                     <div class="description">
-                                        {{ news.content }}
+                                        {{ news.content | linebreaksbr }}
                                     </div>
                                     <div class="extra">
                                         <a href="/news/{{ news.nid }}" class="ui right floated primary button">詳細閱讀
                                             <i class="right chevron icon"></i>
                                         </a>
                                         {% if user.is_authenticated %}
-                                            <div class="ui right floated green button"><i class="edit icon"></i>修改
-                                            </div>
 											<div class="ui right floated red button del"><i class="delete icon"></i>刪除
 												<input type="hidden" value="{{ news.nid }}"></input>
                                             </div>
