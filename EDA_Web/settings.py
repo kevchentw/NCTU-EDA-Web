@@ -22,6 +22,7 @@ SECRET_KEY = 'kffcgi1sjt6k$9ocz(v#5mv0h8z7_qd&95c9ju=45^ss+0ul(!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+#DEBUG = True
 
 TEMPLATE_DEBUG = False
 

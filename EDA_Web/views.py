@@ -34,12 +34,16 @@ def news(request):
         d['news_list_1'] = NewsModel.objects.filter(top__exact=True).order_by('-modified_time')
         nl = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')
         try:
-            d['news_list_0'] = nl[(page-1)*5: min(len(nl)-1, (page-1)*5+5)]
+            d['news_list_0'] = nl[(page-1)*7: min(len(nl)-1, (page-1)*7+7)]
         except:
             d['news_list_0'] = []
+        for n in d['news_list_0']:
+            n.content = n.content.split('\n')[0][:15]
+        for n in d['news_list_1']:
+            n.content = n.content.split('\n')[0][:15]
         d['page'] = page
-        d['max_page'] = range(1, math.ceil(len(nl)/5)+1)
-        d['_max_page'] = math.ceil(len(nl)/5)
+        d['max_page'] = range(1, math.ceil(len(nl)/7)+1)
+        d['_max_page'] = math.ceil(len(nl)/7)
         d['pre_page'] = page - 1 if page != 1 else page
         d['nxt_page'] = page + 1 if page != d['_max_page'] else page
         return render(request, "news.html", d)
