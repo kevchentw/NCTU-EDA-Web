@@ -81,9 +81,15 @@ $(document).ready(function(){
                     <i class="feed icon"></i>
                     <div class="content">
                         {{ news.title }}
-                        <div class="sub header">作者:{{ news.author }}{% if news.modified %}更新時間:
-                            {{ news.modified_time.year }}-{{ news.modified_time.month }}-{{ news.modified_time.day }}
-                            {{ news.created_time.time }}{% endif %}發表時間:{{ news.created_time.year }}-{{ news.created_time.month }}-{{ news.created_time.day }} {{ news.created_time.time }}</div>
+						<div class="sub header">作者:{{ news.author }}</div>
+						{% if news.modified %}
+						<div class="sub header">
+							更新時間:{{ news.modified_time.year }}-{{ news.modified_time.month }}-{{ news.modified_time.day }}{{ news.created_time.time }}
+						</div>
+						{% endif %}
+						<div class="sub header">
+							發表時間:{{ news.created_time.year }}-{{ news.created_time.month }}-{{ news.created_time.day }} {{ news.created_time.time }}
+						</div>
                     </div>
                     <div class="extra">
                         <div class="ui green horizontal label">{{ news.classification }}</div>
