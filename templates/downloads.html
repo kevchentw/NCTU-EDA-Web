@@ -87,7 +87,7 @@ $(document).ready(function(){
 		var uploader = $('input[name=uploader]').val();
 		if(typeof(file) == 'undefined'){
 			$.post('/downloads/',{
-				'did': {{ modify.did }},
+				'did': {% if modify.did %}{{modify.did}}{% else %}''{% endif %} ,
 				'req': 'mod',
 				'description': description,
 				'classification': classification,
