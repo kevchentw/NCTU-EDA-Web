@@ -100,11 +100,11 @@ class DownloadsService:
         log(did)
         try:
             d = self.downloadsdb.get(did__exact=did)
-            log(d)
             path = settings.DOCUMENT_ROOT + '/' + d.filename
-            log(path)
-            os.remove(path)
-            log('remove')
+            try:
+                os.remove(path)
+            except:
+                pass
             d.delete()
             return (None, did)
         except ObjectDoesNotExist:
