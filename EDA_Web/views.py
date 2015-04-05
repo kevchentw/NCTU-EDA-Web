@@ -248,4 +248,8 @@ def login(request):
 
 
 def reset(request):
-    NewsModel.objects.all().delete()
+    '''n = NewsModel.objects.all()
+    for nn in n:
+        if nn.nid != 15:
+            nn.delete()
+    '''
