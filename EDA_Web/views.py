@@ -21,6 +21,7 @@ def home(request):
         d = {}
         d['news_list_1'] = NewsModel.objects.filter(top__exact=True).order_by('-modified_time')[:3]
         tmp = max(6-len(d['news_list_1']), 4)
+        print(tmp)
         d['news_list_0'] = NewsModel.objects.filter(top__exact=False).order_by('-modified_time')[:tmp]
         return render(request, "home.html", d)
     elif request.method == 'POST':
@@ -42,7 +43,7 @@ def news(request):
         for n in d['news_list_1']:
             n.content = n.content.split('\n')[0][:15]
         d['page'] = page
-        d['max_page'] = range(1, math.ceil(len(nl)/7)+1)
+        d['max_page'] = range(1, int(math.ceil(len(nl)/7)+1))
         d['_max_page'] = math.ceil(len(nl)/7)
         d['pre_page'] = page - 1 if page != 1 else page
         d['nxt_page'] = page + 1 if page != d['_max_page'] else page

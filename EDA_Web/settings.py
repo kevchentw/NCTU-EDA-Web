@@ -21,8 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'kffcgi1sjt6k$9ocz(v#5mv0h8z7_qd&95c9ju=45^ss+0ul(!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-#DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 
@@ -83,10 +83,20 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-DOCUMENT_ROOT = '/home/eda/NCTU-EDA-Web/html'
+DOCUMENT_ROOT = os.path.join(BASE_DIR, 'html')
 STATIC_URL = '/static/'
 # STATIC_ROOT = '/home/administrator/NCTU-EDA-Web/static'
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-)
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    "DIRS": [os.path.join(BASE_DIR, 'templates'),],
+    'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors': [
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+            'django.template.context_processors.i18n',
+            ],
+        },
+}]
